@@ -1,0 +1,2 @@
+# 模版项目不自动加载 .env（复制目录时避免误用旧配置）。
+# 启动：`/path/to/bun --no-env-file main.ts`（环境变量由客户端或 shell 注入）。

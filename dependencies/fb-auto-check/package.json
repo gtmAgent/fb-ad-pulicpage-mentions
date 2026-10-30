@@ -1,0 +1,519 @@
+{
+  "name": "fb-auto-check",
+  "version": "1.2.12",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "Facebook账号巡检",
+    "de_DE": "Facebook账号巡检",
+    "es_ES": "Facebook账号巡检",
+    "fr_FR": "Facebook账号巡检",
+    "id_ID": "Facebook账号巡检",
+    "ja_JP": "Facebook账号巡检",
+    "ko_KR": "Facebook账号巡检",
+    "ms_MY": "Facebook账号巡检",
+    "pt_BR": "Facebook账号巡检",
+    "ru_RU": "Facebook账号巡检",
+    "th_TH": "Facebook账号巡检",
+    "vi_VN": "Facebook账号巡检",
+    "zh_CN": "Facebook账号巡检",
+    "zh_TW": "Facebook账号巡检"
+  },
+  "description": {
+    "en_US": "Inspect the Facebook account on each selected browser: tag invalid accounts, network errors, or unrecognized pages, clear those tags when usable, and switch the UI language to English when logged in.",
+    "de_DE": "Prüft das Facebook-Konto im ausgewählten Browser: markiert ungültige Konten, Netzwerkfehler oder nicht erkannte Seiten, entfernt die Markierungen bei nutzbaren Konten und stellt die Oberfläche auf Englisch um.",
+    "es_ES": "Inspecciona la cuenta de Facebook del navegador seleccionado: etiqueta cuentas inválidas, errores de red o páginas no reconocidas, quita esas etiquetas si es usable y cambia el idioma de la interfaz a inglés.",
+    "fr_FR": "Inspecte le compte Facebook du navigateur sélectionné : marque les comptes invalides, les erreurs réseau ou les pages non reconnues, retire ces marqueurs s’ils sont utilisables et passe l’interface en anglais.",
+    "id_ID": "Memeriksa akun Facebook di browser yang dipilih: menandai akun tidak valid, gangguan jaringan, atau halaman yang tidak dikenali, menghapus tanda jika dapat digunakan, dan mengubah bahasa UI ke Inggris jika sudah login.",
+    "ja_JP": "選択したブラウザの Facebook アカウントを点検し、無効・ネットワーク異常・ページを判別できない場合はタグ付け、利用可能ならタグを外し、ログイン済みなら UI を英語に切り替えます。",
+    "ko_KR": "선택한 브라우저의 Facebook 계정을 점검합니다. 무효, 네트워크 이상, 또는 알아보지 못한 페이지면 태그를 달고, 사용 가능하면 태그를 제거하며, 로그인된 경우 UI를 영어로 바꿉니다.",
+    "ms_MY": "Periksa akaun Facebook pada pelayar dipilih: tandakan akaun tidak sah, ralat rangkaian, atau halaman tidak dikenali, buang tanda jika boleh digunakan, dan tukar UI ke Bahasa Inggeris jika log masuk.",
+    "pt_BR": "Inspeciona a conta do Facebook no navegador selecionado: marca contas inválidas, erros de rede ou páginas não reconhecidas, remove as marcas quando utilizáveis e muda a interface para inglês.",
+    "ru_RU": "Проверяет аккаунт Facebook в выбранном браузере: помечает недействительные, с сетевой ошибкой или нераспознанные страницы, снимает метки при доступности и переключает интерфейс на английский.",
+    "th_TH": "ตรวจบัญชี Facebook บนเบราว์เซอร์ที่เลือก: ติดป้ายบัญชีใช้ไม่ได้ เครือข่ายผิดปกติ หรือหน้าจอที่จำไม่ได้ ลบป้ายเมื่อใช้ได้ และเปลี่ยนภาษา UI เป็นอังกฤษเมื่อเข้าสู่ระบบแล้ว",
+    "vi_VN": "Kiểm tra tài khoản Facebook trên trình duyệt đã chọn: gắn nhãn hết hiệu lực, lỗi mạng hoặc trang không nhận ra, gỡ nhãn khi dùng được và đổi giao diện sang tiếng Anh khi đã đăng nhập.",
+    "zh_CN": "检测所选浏览器中的 Facebook 账号状态：失效打「账户失效」、打不开打「网络异常」、看不懂的页面打「无法识别」、可用则去掉这些标签，并在已登录时把界面改为英文。",
+    "zh_TW": "檢測所選瀏覽器中的 Facebook 帳號狀態：失效加上「帳戶失效」、打不開加上「網路異常」、看不懂的頁面加上「無法識別」、可用則移除這些標籤，並在已登入時將介面改為英文。"
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Browsers",
+          "de_DE": "Browser",
+          "es_ES": "Navegadores",
+          "fr_FR": "Navigateurs",
+          "id_ID": "Browser",
+          "ja_JP": "ブラウザ",
+          "ko_KR": "브라우저",
+          "ms_MY": "Pelayar",
+          "pt_BR": "Navegadores",
+          "ru_RU": "Браузеры",
+          "th_TH": "เบราว์เซอร์",
+          "vi_VN": "Trình duyệt",
+          "zh_CN": "浏览器",
+          "zh_TW": "瀏覽器"
+        },
+        "fields": [
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers to inspect",
+              "de_DE": "Zu prüfende Browser",
+              "es_ES": "Navegadores a revisar",
+              "fr_FR": "Navigateurs à inspecter",
+              "id_ID": "Browser yang diperiksa",
+              "ja_JP": "点検するブラウザ",
+              "ko_KR": "점검할 브라우저",
+              "ms_MY": "Pelayar untuk diperiksa",
+              "pt_BR": "Navegadores a inspecionar",
+              "ru_RU": "Браузеры для проверки",
+              "th_TH": "เบราว์เซอร์ที่จะตรวจ",
+              "vi_VN": "Trình duyệt cần kiểm tra",
+              "zh_CN": "要巡检的浏览器",
+              "zh_TW": "要巡檢的瀏覽器"
+            },
+            "hint": {
+              "en_US": "Each selected browser runs one account check on its current Facebook session",
+              "de_DE": "Jeder ausgewählte Browser prüft die aktuelle Facebook-Sitzung einmal",
+              "es_ES": "Cada navegador seleccionado revisa una vez su sesión actual de Facebook",
+              "fr_FR": "Chaque navigateur sélectionné vérifie une fois sa session Facebook actuelle",
+              "id_ID": "Setiap browser yang dipilih menjalankan satu pemeriksaan pada sesi Facebook saat ini",
+              "ja_JP": "選択した各ブラウザで、現在の Facebook セッションを1回点検します",
+              "ko_KR": "선택한 각 브라우저에서 현재 Facebook 세션을 한 번 점검합니다",
+              "ms_MY": "Setiap pelayar dipilih menjalankan satu semakan pada sesi Facebook semasa",
+              "pt_BR": "Cada navegador selecionado executa uma verificação na sessão atual do Facebook",
+              "ru_RU": "Каждый выбранный браузер один раз проверяет текущую сессию Facebook",
+              "th_TH": "แต่ละเบราว์เซอร์ที่เลือกจะตรวจเซสชัน Facebook ปัจจุบันหนึ่งครั้ง",
+              "vi_VN": "Mỗi trình duyệt đã chọn chạy một lần kiểm tra phiên Facebook hiện tại",
+              "zh_CN": "每台所选浏览器各自巡检一次其当前 Facebook 会话",
+              "zh_TW": "每台所選瀏覽器各自巡檢一次其目前 Facebook 工作階段"
+            },
+            "single": false,
+            "platform": "facebook",
+            "defaultValue": []
+          },
+          {
+            "key": "ensure_english",
+            "type": "switch",
+            "label": {
+              "en_US": "Switch UI to English when logged in",
+              "de_DE": "Bei Login Oberfläche auf Englisch umstellen",
+              "es_ES": "Cambiar la interfaz a inglés si hay sesión",
+              "fr_FR": "Passer l’interface en anglais si connecté",
+              "id_ID": "Ubah UI ke Inggris jika sudah login",
+              "ja_JP": "ログイン済みなら UI を英語に切替",
+              "ko_KR": "로그인되어 있으면 UI를 영어로 전환",
+              "ms_MY": "Tukar UI ke Inggeris jika log masuk",
+              "pt_BR": "Mudar a interface para inglês se estiver logado",
+              "ru_RU": "Переключить интерфейс на английский при входе",
+              "th_TH": "เปลี่ยน UI เป็นอังกฤษเมื่อเข้าสู่ระบบแล้ว",
+              "vi_VN": "Đổi giao diện sang tiếng Anh khi đã đăng nhập",
+              "zh_CN": "已登录时把界面改为英文",
+              "zh_TW": "已登入時將介面改為英文"
+            },
+            "defaultValue": 1
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Schedule",
+          "de_DE": "Zeitplan",
+          "es_ES": "Programación",
+          "fr_FR": "Planification",
+          "id_ID": "Jadwal",
+          "ja_JP": "スケジュール",
+          "ko_KR": "일정",
+          "ms_MY": "Jadual",
+          "pt_BR": "Agendamento",
+          "ru_RU": "Расписание",
+          "th_TH": "กำหนดการ",
+          "vi_VN": "Lịch trình",
+          "zh_CN": "频率规划控制",
+          "zh_TW": "頻率規劃控制"
+        },
+        "fields": [
+          {
+            "key": "daily_limit",
+            "type": "text",
+            "label": {
+              "en_US": "Daily limit",
+              "de_DE": "Tageslimit",
+              "es_ES": "Límite diario",
+              "fr_FR": "Limite quotidienne",
+              "id_ID": "Batas harian",
+              "ja_JP": "1日の上限",
+              "ko_KR": "일일 한도",
+              "ms_MY": "Had harian",
+              "pt_BR": "Limite diário",
+              "ru_RU": "Дневной лимит",
+              "th_TH": "ขีดจำกัดรายวัน",
+              "vi_VN": "Giới hạn hàng ngày",
+              "zh_CN": "每日上限",
+              "zh_TW": "每日上限"
+            },
+            "hint": {
+              "en_US": "Max tasks assigned to each device per day",
+              "de_DE": "Max. Aufgaben pro Gerät und Tag",
+              "es_ES": "Máx. de tareas asignadas a cada dispositivo por día",
+              "fr_FR": "Nombre max. de tâches par appareil et par jour",
+              "id_ID": "Maks. tugas yang dialokasikan per perangkat per hari",
+              "ja_JP": "各デバイスに1日あたり割り当てる最大タスク数",
+              "ko_KR": "기기당 하루 최대 할당 작업 수",
+              "ms_MY": "Maks tugas diperuntukkan kepada setiap peranti sehari",
+              "pt_BR": "Máx. de tarefas atribuídas a cada dispositivo por dia",
+              "ru_RU": "Макс. число задач на устройство в день",
+              "th_TH": "จำนวนงานสูงสุดที่มอบหมายต่ออุปกรณ์ต่อวัน",
+              "vi_VN": "Số nhiệm vụ tối đa gán cho mỗi thiết bị mỗi ngày",
+              "zh_CN": "每个设备每天最多分配多少个任务",
+              "zh_TW": "每個裝置每天最多分配多少個任務"
+            },
+            "inputType": "number",
+            "defaultValue": 10
+          },
+          {
+            "key": "during_min",
+            "type": "text",
+            "label": {
+              "en_US": "Min interval (s)",
+              "de_DE": "Min. Abstand (s)",
+              "es_ES": "Intervalo mín. (s)",
+              "fr_FR": "Intervalle min. (s)",
+              "id_ID": "Interval min (d)",
+              "ja_JP": "最小間隔（秒）",
+              "ko_KR": "최소 간격(초)",
+              "ms_MY": "Selang min (s)",
+              "pt_BR": "Intervalo mín. (s)",
+              "ru_RU": "Мин. интервал (с)",
+              "th_TH": "ช่วงห่างขั้นต่ำ (วินาที)",
+              "vi_VN": "Khoảng tối thiểu (giây)",
+              "zh_CN": "最小间隔（s）",
+              "zh_TW": "最小間隔（s）"
+            },
+            "hint": {
+              "en_US": "Min interval between runs on the same device (seconds)",
+              "de_DE": "Min. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo mín. entre ejecuciones en el mismo dispositivo (segundos)",
+              "fr_FR": "Intervalle min. entre exécutions sur le même appareil (secondes)",
+              "id_ID": "Interval min antar jalan pada perangkat yang sama (detik)",
+              "ja_JP": "同一デバイスでの実行間隔の最小値（秒）",
+              "ko_KR": "동일 기기 실행 간 최소 간격(초)",
+              "ms_MY": "Selang min antara larian pada peranti sama (saat)",
+              "pt_BR": "Intervalo mín. entre execuções no mesmo dispositivo (segundos)",
+              "ru_RU": "Мин. интервал между запусками на одном устройстве (сек)",
+              "th_TH": "ช่วงห่างขั้นต่ำระหว่างการรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "vi_VN": "Khoảng tối thiểu giữa các lần chạy trên cùng thiết bị (giây)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最小间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最小間隔（秒）"
+            },
+            "defaultValue": "60"
+          },
+          {
+            "key": "during_max",
+            "type": "text",
+            "label": {
+              "en_US": "Max interval (s)",
+              "de_DE": "Max. Abstand (s)",
+              "es_ES": "Intervalo máx. (s)",
+              "fr_FR": "Intervalle max. (s)",
+              "id_ID": "Interval maks (d)",
+              "ja_JP": "最大間隔（秒）",
+              "ko_KR": "최대 간격(초)",
+              "ms_MY": "Selang maks (s)",
+              "pt_BR": "Intervalo máx. (s)",
+              "ru_RU": "Макс. интервал (с)",
+              "th_TH": "ช่วงห่างสูงสุด (วินาที)",
+              "vi_VN": "Khoảng tối đa (giây)",
+              "zh_CN": "最大间隔（s）",
+              "zh_TW": "最大間隔（s）"
+            },
+            "hint": {
+              "en_US": "Max interval between runs on the same device (seconds)",
+              "de_DE": "Max. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo máx. entre ejecuciones en el mismo dispositivo (segundos)",
+              "fr_FR": "Intervalle max. entre exécutions sur le même appareil (secondes)",
+              "id_ID": "Interval maks antar jalan pada perangkat yang sama (detik)",
+              "ja_JP": "同一デバイスでの実行間隔の最大値（秒）",
+              "ko_KR": "동일 기기 실행 간 최대 간격(초)",
+              "ms_MY": "Selang maks antara larian pada peranti sama (saat)",
+              "pt_BR": "Intervalo máx. entre execuções no mesmo dispositivo (segundos)",
+              "ru_RU": "Макс. интервал между запусками на одном устройстве (сек)",
+              "th_TH": "ช่วงห่างสูงสุดระหว่างการรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "vi_VN": "Khoảng tối đa giữa các lần chạy trên cùng thiết bị (giây)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最大间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最大間隔（秒）"
+            },
+            "defaultValue": "600"
+          },
+          {
+            "key": "daily_time_start",
+            "type": "time",
+            "label": {
+              "en_US": "Daily start time",
+              "de_DE": "Täglicher Startzeitpunkt",
+              "es_ES": "Hora de inicio diaria",
+              "fr_FR": "Heure de début quotidienne",
+              "id_ID": "Waktu mulai harian",
+              "ja_JP": "毎日の開始時刻",
+              "ko_KR": "일일 시작 시각",
+              "ms_MY": "Masa mula harian",
+              "pt_BR": "Horário de início diário",
+              "ru_RU": "Ежедневное время начала",
+              "th_TH": "เวลาเริ่มรายวัน",
+              "vi_VN": "Giờ bắt đầu mỗi ngày",
+              "zh_CN": "每日执行开始时刻",
+              "zh_TW": "每日執行開始時刻"
+            },
+            "defaultValue": "09:00"
+          },
+          {
+            "key": "daily_time_end",
+            "type": "time",
+            "label": {
+              "en_US": "Daily end time",
+              "de_DE": "Täglicher Endzeitpunkt",
+              "es_ES": "Hora de fin diaria",
+              "fr_FR": "Heure de fin quotidienne",
+              "id_ID": "Waktu selesai harian",
+              "ja_JP": "毎日の終了時刻",
+              "ko_KR": "일일 종료 시각",
+              "ms_MY": "Masa tamat harian",
+              "pt_BR": "Horário de término diário",
+              "ru_RU": "Ежедневное время окончания",
+              "th_TH": "เวลาสิ้นสุดรายวัน",
+              "vi_VN": "Giờ kết thúc mỗi ngày",
+              "zh_CN": "每日执行结束时刻",
+              "zh_TW": "每日執行結束時刻"
+            },
+            "defaultValue": "18:00"
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Inspection options",
+          "de_DE": "Prüfoptionen",
+          "es_ES": "Opciones de revisión",
+          "fr_FR": "Options d’inspection",
+          "id_ID": "Opsi pemeriksaan",
+          "ja_JP": "点検オプション",
+          "ko_KR": "점검 옵션",
+          "ms_MY": "Pilihan semakan",
+          "pt_BR": "Opções de inspeção",
+          "ru_RU": "Параметры проверки",
+          "th_TH": "ตัวเลือกการตรวจ",
+          "vi_VN": "Tùy chọn kiểm tra",
+          "zh_CN": "巡检选项",
+          "zh_TW": "巡檢選項"
+        },
+        "fields": [
+          {
+            "key": "ensure_english",
+            "type": "switch",
+            "label": {
+              "en_US": "Switch UI to English when logged in",
+              "de_DE": "Bei Login Oberfläche auf Englisch umstellen",
+              "es_ES": "Cambiar la interfaz a inglés si hay sesión",
+              "fr_FR": "Passer l’interface en anglais si connecté",
+              "id_ID": "Ubah UI ke Inggris jika sudah login",
+              "ja_JP": "ログイン済みなら UI を英語に切替",
+              "ko_KR": "로그인되어 있으면 UI를 영어로 전환",
+              "ms_MY": "Tukar UI ke Inggeris jika log masuk",
+              "pt_BR": "Mudar a interface para inglês se estiver logado",
+              "ru_RU": "Переключить интерфейс на английский при входе",
+              "th_TH": "เปลี่ยน UI เป็นอังกฤษเมื่อเข้าสู่ระบบแล้ว",
+              "vi_VN": "Đổi giao diện sang tiếng Anh khi đã đăng nhập",
+              "zh_CN": "已登录时把界面改为英文",
+              "zh_TW": "已登入時將介面改為英文"
+            },
+            "defaultValue": 1
+          }
+        ]
+      }
+    ],
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "de_DE": "Ausführungsergebnis",
+          "es_ES": "Resultado de ejecución",
+          "fr_FR": "Résultat d'exécution",
+          "id_ID": "Hasil eksekusi",
+          "ja_JP": "実行結果",
+          "ko_KR": "실행 결과",
+          "ms_MY": "Hasil larian",
+          "pt_BR": "Resultado da execução",
+          "ru_RU": "Результат выполнения",
+          "th_TH": "ผลการรัน",
+          "vi_VN": "Kết quả chạy",
+          "zh_CN": "执行结果",
+          "zh_TW": "執行結果"
+        },
+        "fields": [
+          {
+            "key": "accountStatus",
+            "type": "stat",
+            "label": {
+              "en_US": "Account status",
+              "de_DE": "Kontostatus",
+              "es_ES": "Estado de la cuenta",
+              "fr_FR": "État du compte",
+              "id_ID": "Status akun",
+              "ja_JP": "アカウント状態",
+              "ko_KR": "계정 상태",
+              "ms_MY": "Status akaun",
+              "pt_BR": "Status da conta",
+              "ru_RU": "Статус аккаунта",
+              "th_TH": "สถานะบัญชี",
+              "vi_VN": "Trạng thái tài khoản",
+              "zh_CN": "账号状态",
+              "zh_TW": "帳號狀態"
+            }
+          },
+          {
+            "key": "outcome",
+            "type": "stat",
+            "label": {
+              "en_US": "Outcome",
+              "de_DE": "Ergebnis",
+              "es_ES": "Resultado",
+              "fr_FR": "Résultat",
+              "id_ID": "Hasil",
+              "ja_JP": "結果",
+              "ko_KR": "결과",
+              "ms_MY": "Hasil",
+              "pt_BR": "Resultado",
+              "ru_RU": "Итог",
+              "th_TH": "ผลลัพธ์",
+              "vi_VN": "Kết quả",
+              "zh_CN": "处理结果",
+              "zh_TW": "處理結果"
+            }
+          },
+          {
+            "key": "scenario",
+            "type": "text",
+            "label": {
+              "en_US": "Detected scenario",
+              "de_DE": "Erkanntes Szenario",
+              "es_ES": "Escenario detectado",
+              "fr_FR": "Scénario détecté",
+              "id_ID": "Skenario terdeteksi",
+              "ja_JP": "検出シナリオ",
+              "ko_KR": "감지된 시나리오",
+              "ms_MY": "Senario dikesan",
+              "pt_BR": "Cenário detectado",
+              "ru_RU": "Обнаруженный сценарий",
+              "th_TH": "สถานการณ์ที่ตรวจพบ",
+              "vi_VN": "Kịch bản phát hiện",
+              "zh_CN": "命中场景",
+              "zh_TW": "命中場景"
+            }
+          },
+          {
+            "key": "languageAction",
+            "type": "stat",
+            "label": {
+              "en_US": "Language action",
+              "de_DE": "Sprachaktion",
+              "es_ES": "Acción de idioma",
+              "fr_FR": "Action de langue",
+              "id_ID": "Tindakan bahasa",
+              "ja_JP": "言語操作",
+              "ko_KR": "언어 조치",
+              "ms_MY": "Tindakan bahasa",
+              "pt_BR": "Ação de idioma",
+              "ru_RU": "Действие с языком",
+              "th_TH": "การจัดการภาษา",
+              "vi_VN": "Thao tác ngôn ngữ",
+              "zh_CN": "语言处理",
+              "zh_TW": "語言處理"
+            }
+          },
+          {
+            "key": "labels",
+            "type": "text",
+            "label": {
+              "en_US": "Device labels",
+              "de_DE": "Geräte-Labels",
+              "es_ES": "Etiquetas del dispositivo",
+              "fr_FR": "Libellés de l’appareil",
+              "id_ID": "Label perangkat",
+              "ja_JP": "デバイスラベル",
+              "ko_KR": "기기 라벨",
+              "ms_MY": "Label peranti",
+              "pt_BR": "Rótulos do dispositivo",
+              "ru_RU": "Метки устройства",
+              "th_TH": "ป้ายอุปกรณ์",
+              "vi_VN": "Nhãn thiết bị",
+              "zh_CN": "设备标签",
+              "zh_TW": "裝置標籤"
+            }
+          },
+          {
+            "key": "finalUrl",
+            "type": "text",
+            "label": {
+              "en_US": "Final URL",
+              "de_DE": "Endgültige URL",
+              "es_ES": "URL final",
+              "fr_FR": "URL finale",
+              "id_ID": "URL akhir",
+              "ja_JP": "最終 URL",
+              "ko_KR": "최종 URL",
+              "ms_MY": "URL akhir",
+              "pt_BR": "URL final",
+              "ru_RU": "Итоговый URL",
+              "th_TH": "URL สุดท้าย",
+              "vi_VN": "URL cuối",
+              "zh_CN": "最终 URL",
+              "zh_TW": "最終 URL"
+            }
+          },
+          {
+            "key": "title",
+            "type": "stat",
+            "label": {
+              "en_US": "Page title",
+              "de_DE": "Seitentitel",
+              "es_ES": "Título de la página",
+              "fr_FR": "Titre de la page",
+              "id_ID": "Judul halaman",
+              "ja_JP": "ページタイトル",
+              "ko_KR": "페이지 제목",
+              "ms_MY": "Tajuk halaman",
+              "pt_BR": "Título da página",
+              "ru_RU": "Заголовок страницы",
+              "th_TH": "ชื่อหน้า",
+              "vi_VN": "Tiêu đề trang",
+              "zh_CN": "页面标题",
+              "zh_TW": "頁面標題"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}

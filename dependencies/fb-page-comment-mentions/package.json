@@ -1,0 +1,849 @@
+{
+  "name": "fb-page-comment-mentions",
+  "version": "1.3.0",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "Facebook 公共主页评论/提及",
+    "de_DE": "Facebook 公共主页评论/提及",
+    "es_ES": "Facebook 公共主页评论/提及",
+    "fr_FR": "Facebook 公共主页评论/提及",
+    "id_ID": "Facebook 公共主页评论/提及",
+    "ja_JP": "Facebook 公共主页评论/提及",
+    "ko_KR": "Facebook 公共主页评论/提及",
+    "ms_MY": "Facebook 公共主页评论/提及",
+    "pt_BR": "Facebook 公共主页评论/提及",
+    "ru_RU": "Facebook 公共主页评论/提及",
+    "th_TH": "Facebook 公共主页评论/提及",
+    "vi_VN": "Facebook 公共主页评论/提及",
+    "zh_CN": "Facebook 公共主页评论/提及",
+    "zh_TW": "Facebook 公共主页评论/提及"
+  },
+  "description": {
+    "en_US": "Comment on the latest post of a public Facebook Page, then publish posts on the Mentions tab. Texts and images are paired in order.",
+    "de_DE": "Kommentiert den neuesten Beitrag einer öffentlichen Facebook-Seite und veröffentlicht dann Beiträge im Tab „Erwähnungen“. Texte und Bilder werden der Reihe nach gepaart.",
+    "es_ES": "Comenta el último post de una Página pública y luego publica en la pestaña Menciones. Textos e imágenes se emparejan en orden.",
+    "fr_FR": "Commente la dernière publication d’une Page publique, puis publie dans l’onglet Mentions. Textes et images sont appariés dans l’ordre.",
+    "id_ID": "Komentari postingan terbaru Halaman publik, lalu posting di tab Mentions. Teks dan gambar dipasangkan berurutan.",
+    "ja_JP": "公開ページの最新投稿に順にコメントし、「メンション」タブで順に投稿。文と画像を順に対応付けて投稿します。",
+    "ko_KR": "공개 페이지 최신 게시물에 순서대로 댓글한 뒤 멘션 탭에서 순서대로 게시합니다. 문구와 이미지를 순서대로 짝지어 게시합니다.",
+    "ms_MY": "Komen pada siaran terkini Halaman awam, kemudian siar di tab Mentions. Teks dan imej diganding ikut urutan.",
+    "pt_BR": "Comenta a postagem mais recente de uma Página pública e depois publica na aba Menções. Textos e imagens são pareados em ordem.",
+    "ru_RU": "Комментирует последний пост публичной страницы, затем публикует во вкладке «Упоминания». Тексты и изображения сопоставляются по порядку.",
+    "th_TH": "แสดงความคิดเห็นในโพสต์ล่าสุดของเพจสาธารณะ แล้วโพสต์ในแท็บการกล่าวถึง ตามลำดับคู่ข้อความกับรูปภาพ",
+    "vi_VN": "Bình luận lần lượt bài mới nhất trên Trang công khai, rồi đăng trên tab Đề cập. Ghép văn bản và ảnh theo thứ tự.",
+    "zh_CN": "对公共主页最新帖依次评论，再到「提及」页依次发帖。文案与图片按顺序配对发布。",
+    "zh_TW": "對公共主頁最新貼文依序留言，再到「提及」頁依序發文。文案與圖片依序配對發布。"
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Pages & devices",
+          "de_DE": "Pages & devices",
+          "es_ES": "Pages & devices",
+          "fr_FR": "Pages & devices",
+          "id_ID": "Pages & devices",
+          "ja_JP": "ページとデバイス",
+          "ko_KR": "페이지 기기",
+          "ms_MY": "Pages & devices",
+          "pt_BR": "Pages & devices",
+          "ru_RU": "Pages & devices",
+          "th_TH": "Pages & devices",
+          "vi_VN": "Pages & devices",
+          "zh_CN": "Pages & devices",
+          "zh_TW": "主頁與裝"
+        },
+        "fields": [
+          {
+            "key": "hosts",
+            "type": "text",
+            "label": {
+              "en_US": "Page URLs",
+              "de_DE": "Page URLs",
+              "es_ES": "Page URLs",
+              "fr_FR": "Page URLs",
+              "id_ID": "Page URLs",
+              "ja_JP": "ペーURL",
+              "ko_KR": "페이지 URL",
+              "ms_MY": "Page URLs",
+              "pt_BR": "Page URLs",
+              "ru_RU": "Page URLs",
+              "th_TH": "Page URLs",
+              "vi_VN": "Page URLs",
+              "zh_CN": "公共主页链接",
+              "zh_TW": "lq;\u0001#P"
+            },
+            "hint": {
+              "en_US": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "de_DE": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "es_ES": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "fr_FR": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "id_ID": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "ja_JP": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "ko_KR": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "ms_MY": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "pt_BR": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "ru_RU": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "th_TH": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "vi_VN": "One Facebook Page URL per line. Duplicate pages are auto-removed. Each page gets at most one comment and one mention. Tasks are split evenly across selected browsers.",
+              "zh_CN": "每行一个公共主页链接。重复主页会自动去重；每个主页最多发一次评论和一次提及。任务会平均分给所选浏览器。",
+              "zh_TW": "每行一個公共主頁連結。重複主頁會自動去重；每個主頁最多發一次評論和一次提及。任務會平均分給所選瀏覽器。"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "de_DE": "Browsers",
+              "es_ES": "Browsers",
+              "fr_FR": "Browsers",
+              "id_ID": "Browsers",
+              "ja_JP": "ブラウザ",
+              "ko_KR": "브라우저",
+              "ms_MY": "Browsers",
+              "pt_BR": "Browsers",
+              "ru_RU": "Browsers",
+              "th_TH": "Browsers",
+              "vi_VN": "Browsers",
+              "zh_CN": "Browsers",
+              "zh_TW": "瀏覽"
+            },
+            "hint": {
+              "en_US": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "de_DE": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "es_ES": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "fr_FR": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "id_ID": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "ja_JP": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "ko_KR": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "ms_MY": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "pt_BR": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "ru_RU": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "th_TH": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "vi_VN": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "zh_CN": "Logged-in Facebook browsers. Pages are assigned round-robin (evenly).",
+              "zh_TW": "已登Facebook 的瀏覽器。主頁按輪詢平均分配"
+            },
+            "single": false,
+            "platform": "facebook",
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Comment & mention content",
+          "de_DE": "Comment & mention content",
+          "es_ES": "Comment & mention content",
+          "fr_FR": "Comment & mention content",
+          "id_ID": "Comment & mention content",
+          "ja_JP": "コメントとメンション内容",
+          "ko_KR": "댓글 멘션 내용",
+          "ms_MY": "Comment & mention content",
+          "pt_BR": "Comment & mention content",
+          "ru_RU": "Comment & mention content",
+          "th_TH": "Comment & mention content",
+          "vi_VN": "Comment & mention content",
+          "zh_CN": "Comment & mention content",
+          "zh_TW": "評論與提及內"
+        },
+        "fields": [
+          {
+            "key": "comment_texts",
+            "type": "text",
+            "label": {
+              "en_US": "Comment texts",
+              "de_DE": "Comment texts",
+              "es_ES": "Comment texts",
+              "fr_FR": "Comment texts",
+              "id_ID": "Comment texts",
+              "ja_JP": "Comment texts",
+              "ko_KR": "\u0013\u0000 8l",
+              "ms_MY": "Comment texts",
+              "pt_BR": "Comment texts",
+              "ru_RU": "Comment texts",
+              "th_TH": "Comment texts",
+              "vi_VN": "Comment texts",
+              "zh_CN": "评论文案",
+              "zh_TW": "UևH"
+            },
+            "hint": {
+              "en_US": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "de_DE": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "es_ES": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "fr_FR": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "id_ID": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "ja_JP": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "ko_KR": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "ms_MY": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "pt_BR": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "ru_RU": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "th_TH": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "vi_VN": "One comment per line (text pool). Each Page gets only one comment, taken round-robin from this pool and paired with Comment images by order.",
+              "zh_CN": "每行一条评论文案（文案池）。每个主页只发一条，按顺序从池中轮询取用，并与「评论图片」按序配对。",
+              "zh_TW": "每行一則評論文案（文案池）。每個主頁只發一則，依序從池中輪詢取用，並與「評論圖片」依序配對。"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "comment_images",
+            "type": "resource",
+            "label": {
+              "en_US": "Comment images",
+              "de_DE": "Comment images",
+              "es_ES": "Comment images",
+              "fr_FR": "Comment images",
+              "id_ID": "Comment images",
+              "ja_JP": "コメント画像",
+              "ko_KR": "댓글 이미지",
+              "ms_MY": "Comment images",
+              "pt_BR": "Comment images",
+              "ru_RU": "Comment images",
+              "th_TH": "Comment images",
+              "vi_VN": "Comment images",
+              "zh_CN": "评论图片",
+              "zh_TW": "評論圖片"
+            },
+            "hint": {
+              "en_US": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "de_DE": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "es_ES": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "fr_FR": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "id_ID": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "ja_JP": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "ko_KR": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "ms_MY": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "pt_BR": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "ru_RU": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "th_TH": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "vi_VN": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "zh_CN": "Optional image pool for comments. Images only. Reused for every Page; paired/cycled with texts.",
+              "zh_TW": "可選評論圖片池，僅圖片。每個主頁複用；與文案依序配對並循環"
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": []
+          },
+          {
+            "key": "mention_texts",
+            "type": "text",
+            "label": {
+              "en_US": "Mention post texts",
+              "de_DE": "Mention post texts",
+              "es_ES": "Mention post texts",
+              "fr_FR": "Mention post texts",
+              "id_ID": "Mention post texts",
+              "ja_JP": "メンション投稿文",
+              "ko_KR": "멘션 게시 문구",
+              "ms_MY": "Mention post texts",
+              "pt_BR": "Mention post texts",
+              "ru_RU": "Mention post texts",
+              "th_TH": "Mention post texts",
+              "vi_VN": "Mention post texts",
+              "zh_CN": "提及发帖文案",
+              "zh_TW": "提及發文文案"
+            },
+            "hint": {
+              "en_US": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "de_DE": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "es_ES": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "fr_FR": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "id_ID": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "ja_JP": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "ko_KR": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "ms_MY": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "pt_BR": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "ru_RU": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "th_TH": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "vi_VN": "One Mentions-tab post per line (text pool). Each Page gets only one mention post, taken round-robin from this pool and paired with Mention images.",
+              "zh_CN": "每行一条「提及」发帖文案（文案池）。每个主页只发一条，按顺序从池中轮询取用，并与「提及图片」按序配对。",
+              "zh_TW": "每行一則「提及」發文文案（文案池）。每個主頁只發一則，依序從池中輪詢取用，並與「提及圖片」依序配對。"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "mention_images",
+            "type": "resource",
+            "label": {
+              "en_US": "Mention images",
+              "de_DE": "Mention images",
+              "es_ES": "Mention images",
+              "fr_FR": "Mention images",
+              "id_ID": "Mention images",
+              "ja_JP": "Mention images",
+              "ko_KR": "멘션 이미지",
+              "ms_MY": "Mention images",
+              "pt_BR": "Mention images",
+              "ru_RU": "Mention images",
+              "th_TH": "Mention images",
+              "vi_VN": "Mention images",
+              "zh_CN": "提及图片",
+              "zh_TW": "提及圖片"
+            },
+            "hint": {
+              "en_US": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "de_DE": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "es_ES": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "fr_FR": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "id_ID": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "ja_JP": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "ko_KR": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "ms_MY": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "pt_BR": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "ru_RU": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "th_TH": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "vi_VN": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "zh_CN": "Optional image pool for Mentions posts. Images only. Reused for every Page.",
+              "zh_TW": "可選提及圖片池，僅圖片。每個主頁複用"
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Schedule",
+          "zh_CN": "频率规划控制",
+          "zh_TW": "頻率規劃控制",
+          "ja_JP": "スケジュール",
+          "ko_KR": "|\u0015",
+          "th_TH": "\u00013+\u0019\u0014\u00012#",
+          "id_ID": "Jadwal",
+          "ms_MY": "Jadual",
+          "vi_VN": "Lịch trình",
+          "de_DE": "Zeitplan",
+          "es_ES": "Programación",
+          "pt_BR": "Agendamento",
+          "fr_FR": "Planification",
+          "ru_RU": "0A?8A0=85"
+        },
+        "fields": [
+          {
+            "key": "daily_limit",
+            "type": "text",
+            "label": {
+              "en_US": "Daily limit",
+              "zh_CN": "每日上限",
+              "zh_TW": "每日上限",
+              "ja_JP": "1日の上限",
+              "ko_KR": "일일 한도",
+              "th_TH": "\u00025\u0014\b3\u00011\u0014#2\"'1\u0019",
+              "id_ID": "Batas harian",
+              "ms_MY": "Had harian",
+              "vi_VN": "Giới hạn hàng ngày",
+              "de_DE": "Tageslimit",
+              "es_ES": "Límite diario",
+              "pt_BR": "Limite diário",
+              "fr_FR": "Limite quotidienne",
+              "ru_RU": "\u0014=52=>9 ;8<8B"
+            },
+            "hint": {
+              "en_US": "Max tasks assigned to each device per day",
+              "zh_CN": "每个设备每天最多分配多少个任务",
+              "zh_TW": "Max tasks assigned to each device per day",
+              "ja_JP": "Max tasks assigned to each device per day",
+              "ko_KR": "Max tasks assigned to each device per day",
+              "th_TH": "\b3\u0019'\u0019\u00072\u0019*9\u0007*8\u0014\u00175H!-\u001a+!2\"\u0015H--8\u001b\u0001#\u0013L\u0015H-'1\u0019",
+              "id_ID": "Maks. tugas yang dialokasikan per perangkat per hari",
+              "ms_MY": "Maks tugas diperuntukkan kepada setiap peranti sehari",
+              "vi_VN": "Snhiệm vtối đa gán cho mỗi thiết bmỗi ngày",
+              "de_DE": "Max. Aufgaben pro Gerät und Tag",
+              "es_ES": "Máx. de tareas asignadas a cada dispositivo por día",
+              "pt_BR": "Máx. de tarefas atribuídas a cada dispositivo por dia",
+              "fr_FR": "Nombre max. de tâches par appareil et par jour",
+              "ru_RU": "\u001c0:A. G8A;> 7040G =0 CAB@>9AB2> 2 45=L"
+            },
+            "inputType": "number",
+            "defaultValue": 10
+          },
+          {
+            "key": "during_min",
+            "type": "text",
+            "label": {
+              "en_US": "Min interval (s)",
+              "zh_CN": "Min interval (s)",
+              "zh_TW": "Min interval (s)",
+              "ja_JP": "最小間隔（秒）",
+              "ko_KR": "최소 간격(",
+              "th_TH": "H'\u0007+H2\u0007\u00021I\u0019\u0015H('4\u00192\u00175)",
+              "id_ID": "Interval min (d)",
+              "ms_MY": "Selang min (s)",
+              "vi_VN": "Khoảng tối thiểu (giây)",
+              "de_DE": "Min. Abstand (s)",
+              "es_ES": "Intervalo mín. (s)",
+              "pt_BR": "Intervalo mín. (s)",
+              "fr_FR": "Intervalle min. (s)",
+              "ru_RU": "\u001c8=. 8=B5@20; (A)"
+            },
+            "hint": {
+              "en_US": "Min interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最小间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最小間隔（秒）",
+              "ja_JP": "同一デバイスでの実行間隔の最小値（秒）",
+              "ko_KR": "동일 기기 실행 최소 간격(",
+              "th_TH": "H'\u0007+H2\u0007\u00021I\u0019\u0015H3#0+'H2\u0007\u00012##1\u0019\u001a\u0019-8\u001b\u0001#\u0013L@\u00145\"'\u00011('4\u00192\u00175)",
+              "id_ID": "Interval min antar jalan pada perangkat yang sama (detik)",
+              "ms_MY": "Selang min antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối thiểu giữa các lần chạy trên cùng thiết b(giây)",
+              "de_DE": "Min. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo mín. entre ejecuciones en el mismo dispositivo (segundos)",
+              "pt_BR": "Intervalo mín. entre execuções no mesmo dispositivo (segundos)",
+              "fr_FR": "Intervalle min. entre exécutions sur le même appareil (secondes)",
+              "ru_RU": "\u001c8=. 8=B5@20; <564C 70?CA:0<8 =0 >4=>< CAB@>9AB25 (A5:)"
+            },
+            "defaultValue": "60"
+          },
+          {
+            "key": "during_max",
+            "type": "text",
+            "label": {
+              "en_US": "Max interval (s)",
+              "zh_CN": "Max interval (s)",
+              "zh_TW": "Max interval (s)",
+              "ja_JP": "最大間隔（秒）",
+              "ko_KR": "최대 간격(",
+              "th_TH": "H'\u0007+H2\u0007*9\u0007*8\u0014 ('4\u00192\u00175)",
+              "id_ID": "Interval maks (d)",
+              "ms_MY": "Selang maks (s)",
+              "vi_VN": "Khoảng tối đa (giây)",
+              "de_DE": "Max. Abstand (s)",
+              "es_ES": "Intervalo máx. (s)",
+              "pt_BR": "Intervalo máx. (s)",
+              "fr_FR": "Intervalle max. (s)",
+              "ru_RU": "\u001c0:A. 8=B5@20; (A)"
+            },
+            "hint": {
+              "en_US": "Max interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最大间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最大間隔（秒）",
+              "ja_JP": "同一デバイスでの実行間隔の最大値（秒）",
+              "ko_KR": "동일 기기 실행 최대 간격(",
+              "th_TH": "H'\u0007+H2\u0007*9\u0007*8\u0014#0+'H2\u0007\u00012##1\u0019\u001a\u0019-8\u001b\u0001#\u0013L@\u00145\"'\u00011('4\u00192\u00175)",
+              "id_ID": "Interval maks antar jalan pada perangkat yang sama (detik)",
+              "ms_MY": "Selang maks antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối đa giữa các lần chạy trên cùng thiết b(giây)",
+              "de_DE": "Max. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo máx. entre ejecuciones en el mismo dispositivo (segundos)",
+              "pt_BR": "Intervalo máx. entre execuções no mesmo dispositivo (segundos)",
+              "fr_FR": "Intervalle max. entre exécutions sur le même appareil (secondes)",
+              "ru_RU": "\u001c0:A. 8=B5@20; <564C 70?CA:0<8 =0 >4=>< CAB@>9AB25 (A5:)"
+            },
+            "defaultValue": "600"
+          },
+          {
+            "key": "daily_time_start",
+            "type": "time",
+            "label": {
+              "en_US": "Daily start time",
+              "zh_CN": "Daily start time",
+              "zh_TW": "每日執行開始時刻",
+              "ja_JP": "Daily start time",
+              "ko_KR": "일일 시작 시각",
+              "th_TH": "@'%2@#4H!#2\"'1\u0019",
+              "id_ID": "Waktu mulai harian",
+              "ms_MY": "Masa mula harian",
+              "vi_VN": "Gibắt đầu mỗi ngày",
+              "de_DE": "Täglicher Startzeitpunkt",
+              "es_ES": "Hora de inicio diaria",
+              "pt_BR": "Horário de início diário",
+              "fr_FR": "Heure de début quotidienne",
+              "ru_RU": "\u0015654=52=>5 2@5<O =0G0;0"
+            },
+            "defaultValue": "09:00"
+          },
+          {
+            "key": "daily_time_end",
+            "type": "time",
+            "label": {
+              "en_US": "Daily end time",
+              "zh_CN": "每日执行结束时刻",
+              "zh_TW": "每日執行結束時刻",
+              "ja_JP": "Daily end time",
+              "ko_KR": "일일 종료 시각",
+              "th_TH": "@'%2*4I\u0019*8\u0014#2\"'1\u0019",
+              "id_ID": "Waktu selesai harian",
+              "ms_MY": "Masa tamat harian",
+              "vi_VN": "Gikết thúc mỗi ngày",
+              "de_DE": "Täglicher Endzeitpunkt",
+              "es_ES": "Hora de fin diaria",
+              "pt_BR": "Horário de término diário",
+              "fr_FR": "Heure de fin quotidienne",
+              "ru_RU": "\u0015654=52=>5 2@5<O >:>=G0=8O"
+            },
+            "defaultValue": "18:00"
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Page & content",
+          "de_DE": "Page & content",
+          "es_ES": "Page & content",
+          "fr_FR": "Page & content",
+          "id_ID": "Page & content",
+          "ja_JP": "ページと内容",
+          "ko_KR": "페이지 내용",
+          "ms_MY": "Page & content",
+          "pt_BR": "Page & content",
+          "ru_RU": "Page & content",
+          "th_TH": "Page & content",
+          "vi_VN": "Page & content",
+          "zh_CN": "Page & content",
+          "zh_TW": ";\u0001\u0007g"
+        },
+        "fields": [
+          {
+            "key": "host",
+            "type": "text",
+            "label": {
+              "en_US": "Page URL",
+              "de_DE": "Page URL",
+              "es_ES": "Page URL",
+              "fr_FR": "Page URL",
+              "id_ID": "Page URL",
+              "ja_JP": "ペーURL",
+              "ko_KR": "페이지 URL",
+              "ms_MY": "Page URL",
+              "pt_BR": "Page URL",
+              "ru_RU": "Page URL",
+              "th_TH": "Page URL",
+              "vi_VN": "Page URL",
+              "zh_CN": "公共主页链接",
+              "zh_TW": "lq;\u0001#P"
+            },
+            "hint": {
+              "en_US": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "de_DE": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "es_ES": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "fr_FR": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "id_ID": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "ja_JP": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "ko_KR": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "ms_MY": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "pt_BR": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "ru_RU": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "th_TH": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "vi_VN": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "zh_CN": "Facebook public Page URL, e.g. https://www.facebook.com/profile.php?id=,",
+              "zh_TW": "Facebook 公共主頁網址，例https://www.facebook.com/profile.php?id="
+            },
+            "defaultValue": "https://www.facebook.com/profile.php?id=100092692962252"
+          },
+          {
+            "key": "comment_texts",
+            "type": "text",
+            "label": {
+              "en_US": "Comment texts",
+              "de_DE": "Comment texts",
+              "es_ES": "Comment texts",
+              "fr_FR": "Comment texts",
+              "id_ID": "Comment texts",
+              "ja_JP": "Comment texts",
+              "ko_KR": "\u0013\u0000 8l",
+              "ms_MY": "Comment texts",
+              "pt_BR": "Comment texts",
+              "ru_RU": "Comment texts",
+              "th_TH": "Comment texts",
+              "vi_VN": "Comment texts",
+              "zh_CN": "评论文案",
+              "zh_TW": "UևH"
+            },
+            "hint": {
+              "en_US": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "de_DE": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "es_ES": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "fr_FR": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "id_ID": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "ja_JP": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "ko_KR": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "ms_MY": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "pt_BR": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "ru_RU": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "th_TH": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "vi_VN": "One comment (or leave empty to skip). Each run posts at most one comment on this Page.",
+              "zh_CN": "一条评论（可空则跳过）。单次任务对该主页最多只发一条评论。",
+              "zh_TW": "一則評論（可空則跳過）。單次任務對該主頁最多只發一則評論。"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": "Nice page!"
+          },
+          {
+            "key": "comment_images",
+            "type": "resource",
+            "label": {
+              "en_US": "Comment images",
+              "de_DE": "Comment images",
+              "es_ES": "Comment images",
+              "fr_FR": "Comment images",
+              "id_ID": "Comment images",
+              "ja_JP": "コメント画像",
+              "ko_KR": "댓글 이미지",
+              "ms_MY": "Comment images",
+              "pt_BR": "Comment images",
+              "ru_RU": "Comment images",
+              "th_TH": "Comment images",
+              "vi_VN": "Comment images",
+              "zh_CN": "评论图片",
+              "zh_TW": "評論圖片"
+            },
+            "hint": {
+              "en_US": "Optional. One image per comment in order. Images only.",
+              "de_DE": "Optional. One image per comment in order. Images only.",
+              "es_ES": "Optional. One image per comment in order. Images only.",
+              "fr_FR": "Optional. One image per comment in order. Images only.",
+              "id_ID": "Optional. One image per comment in order. Images only.",
+              "ja_JP": "Optional. One image per comment in order. Images only.",
+              "ko_KR": "Optional. One image per comment in order. Images only.",
+              "ms_MY": "Optional. One image per comment in order. Images only.",
+              "pt_BR": "Optional. One image per comment in order. Images only.",
+              "ru_RU": "Optional. One image per comment in order. Images only.",
+              "th_TH": "Optional. One image per comment in order. Images only.",
+              "vi_VN": "Optional. One image per comment in order. Images only.",
+              "zh_CN": "Optional. One image per comment in order. Images only.",
+              "zh_TW": "可選。依序與評論文案配對，僅支援圖片"
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": []
+          },
+          {
+            "key": "mention_texts",
+            "type": "text",
+            "label": {
+              "en_US": "Mention post texts",
+              "de_DE": "Mention post texts",
+              "es_ES": "Mention post texts",
+              "fr_FR": "Mention post texts",
+              "id_ID": "Mention post texts",
+              "ja_JP": "メンション投稿文",
+              "ko_KR": "멘션 게시 문구",
+              "ms_MY": "Mention post texts",
+              "pt_BR": "Mention post texts",
+              "ru_RU": "Mention post texts",
+              "th_TH": "Mention post texts",
+              "vi_VN": "Mention post texts",
+              "zh_CN": "提及发帖文案",
+              "zh_TW": "提及發文文案"
+            },
+            "hint": {
+              "en_US": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "de_DE": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "es_ES": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "fr_FR": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "id_ID": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "ja_JP": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "ko_KR": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "ms_MY": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "pt_BR": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "ru_RU": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "th_TH": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "vi_VN": "One Mentions post (or leave empty to skip). Each run posts at most one mention on this Page.",
+              "zh_CN": "一条提及发帖（可空则跳过）。单次任务对该主页最多只发一条提及。",
+              "zh_TW": "一則提及發文（可空則跳過）。單次任務對該主頁最多只發一則提及。"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "mention_images",
+            "type": "resource",
+            "label": {
+              "en_US": "Mention images",
+              "de_DE": "Mention images",
+              "es_ES": "Mention images",
+              "fr_FR": "Mention images",
+              "id_ID": "Mention images",
+              "ja_JP": "Mention images",
+              "ko_KR": "멘션 이미지",
+              "ms_MY": "Mention images",
+              "pt_BR": "Mention images",
+              "ru_RU": "Mention images",
+              "th_TH": "Mention images",
+              "vi_VN": "Mention images",
+              "zh_CN": "提及图片",
+              "zh_TW": "提及圖片"
+            },
+            "hint": {
+              "en_US": "Optional. One image per Mentions post in order. Images only.",
+              "de_DE": "Optional. One image per Mentions post in order. Images only.",
+              "es_ES": "Optional. One image per Mentions post in order. Images only.",
+              "fr_FR": "Optional. One image per Mentions post in order. Images only.",
+              "id_ID": "Optional. One image per Mentions post in order. Images only.",
+              "ja_JP": "Optional. One image per Mentions post in order. Images only.",
+              "ko_KR": "Optional. One image per Mentions post in order. Images only.",
+              "ms_MY": "Optional. One image per Mentions post in order. Images only.",
+              "pt_BR": "Optional. One image per Mentions post in order. Images only.",
+              "ru_RU": "Optional. One image per Mentions post in order. Images only.",
+              "th_TH": "Optional. One image per Mentions post in order. Images only.",
+              "vi_VN": "Optional. One image per Mentions post in order. Images only.",
+              "zh_CN": "Optional. One image per Mentions post in order. Images only.",
+              "zh_TW": "可選。依序與提及文案配對，僅支援圖片"
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": []
+          }
+        ]
+      }
+    ],
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "de_DE": "Run result",
+          "es_ES": "Run result",
+          "fr_FR": "Run result",
+          "id_ID": "Run result",
+          "ja_JP": "実行結果",
+          "ko_KR": "실행 결과",
+          "ms_MY": "Run result",
+          "pt_BR": "Run result",
+          "ru_RU": "Run result",
+          "th_TH": "Run result",
+          "vi_VN": "Run result",
+          "zh_CN": "gLӜ",
+          "zh_TW": "執行結果"
+        },
+        "fields": [
+          {
+            "key": "host",
+            "type": "text",
+            "label": {
+              "en_US": "Target page",
+              "de_DE": "Target page",
+              "es_ES": "Target page",
+              "fr_FR": "Target page",
+              "id_ID": "Target page",
+              "ja_JP": "Target page",
+              "ko_KR": "대페이지",
+              "ms_MY": "Target page",
+              "pt_BR": "Target page",
+              "ru_RU": "Target page",
+              "th_TH": "Target page",
+              "vi_VN": "Target page",
+              "zh_CN": "目标主页",
+              "zh_TW": "目標主頁"
+            }
+          },
+          {
+            "key": "finalUrl",
+            "type": "text",
+            "label": {
+              "en_US": "Final URL",
+              "de_DE": "Final URL",
+              "es_ES": "Final URL",
+              "fr_FR": "Final URL",
+              "id_ID": "Final URL",
+              "ja_JP": "\u0000URL",
+              "ko_KR": "최종 URL",
+              "ms_MY": "Final URL",
+              "pt_BR": "Final URL",
+              "ru_RU": "Final URL",
+              "th_TH": "Final URL",
+              "vi_VN": "Final URL",
+              "zh_CN": "\u0000URL",
+              "zh_TW": "\u0000URL"
+            }
+          },
+          {
+            "key": "commentCount",
+            "type": "stat",
+            "label": {
+              "en_US": "Comments published",
+              "de_DE": "Comments published",
+              "es_ES": "Comments published",
+              "fr_FR": "Comments published",
+              "id_ID": "Comments published",
+              "ja_JP": "Comments published",
+              "ko_KR": "Comments published",
+              "ms_MY": "Comments published",
+              "pt_BR": "Comments published",
+              "ru_RU": "Comments published",
+              "th_TH": "Comments published",
+              "vi_VN": "Comments published",
+              "zh_CN": "Comments published",
+              "zh_TW": "已發評論"
+            }
+          },
+          {
+            "key": "mentionCount",
+            "type": "stat",
+            "label": {
+              "en_US": "Mention posts published",
+              "de_DE": "Mention posts published",
+              "es_ES": "Mention posts published",
+              "fr_FR": "Mention posts published",
+              "id_ID": "Mention posts published",
+              "ja_JP": "メンション投稿数",
+              "ko_KR": "Mention posts published",
+              "ms_MY": "Mention posts published",
+              "pt_BR": "Mention posts published",
+              "ru_RU": "Mention posts published",
+              "th_TH": "Mention posts published",
+              "vi_VN": "Mention posts published",
+              "zh_CN": "已发提及帖数",
+              "zh_TW": "已發提及貼數"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}

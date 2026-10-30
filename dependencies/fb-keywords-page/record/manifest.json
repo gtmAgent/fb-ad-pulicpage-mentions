@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "uuid": "d82cc833-1f2f-414c-8d2a-5d2fa66588b0",
+  "name": "Facebook采集关键词公共主页",
+  "description": "",
+  "deviceType": "browser",
+  "socialCategoryId": 1,
+  "deviceId": 0,
+  "createdAt": 1792122708,
+  "updatedAt": 1792390493,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "06a7fe36-76db-488a-a4d5-214a7e24413c",
+      "name": "Facebook搜索关键词",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "7a40de0d-996c-4614-a1c6-9e6b9d4de6d2",
+          "title": "输入关键词",
+          "description": "1.自动化尽量避免与界面语言类型相关 2.自动化功能的稳定性稳定",
+          "capturedAt": 1792122740,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "(5) Facebook",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "7e9b112a-73e8-474c-903e-f74839617ff2",
+          "title": "点击公共主页，依次采集公共主页链接",
+          "description": "1.自动化尽量避免与界面语言类型相关 2.自动化功能的稳定性稳定",
+          "capturedAt": 1792122923,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/search/pages?q=%E4%BB%A3%E8%BF%90%E8%90%A5",
+              "title": "(5) 代运营 - 搜索结果 | Facebook",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

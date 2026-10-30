@@ -1,0 +1,374 @@
+{
+  "version": 2,
+  "uuid": "91e9bc51-4529-4089-8d64-068b6e0bc72a",
+  "name": "Facebook账号巡检",
+  "description": "自动检测账号状态，并通过简单验证，修改语言为英文",
+  "deviceType": "browser",
+  "socialCategoryId": 1,
+  "deviceId": 0,
+  "createdAt": 1789438702,
+  "updatedAt": 1792390480,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "e046b4e7-f6d2-4e7c-a4a2-5fd743387a03",
+      "name": "登出状态下，点击登录，出现输入密码页面，该账户失效",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "681a66da-b2c2-47ff-8680-060b7e2b6c49",
+          "title": "登出状态下，点击蓝色长框",
+          "description": "登出状态下，此处有一个大头像，点击下面的蓝色长框",
+          "capturedAt": 1789446041,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "Facebook",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "c7af8dbd-2f69-4ebc-a6ae-c35d40a67003",
+          "title": "出现输入密码页面，给账号打上“账户失效”标签",
+          "description": "此处需要输入密码，说明账户确实登录不进去了，给该账号打上“账户失效”标签，若登录进去了，则判定语言是否为英文，不是的话修改为英文",
+          "capturedAt": 1789446092,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/?crypted_string=AYgV9rkFR6iBiA3aw_FkiyTKpWJfrtt5aW-9lZiAKcW4n1O9-jm2jhiBDyHioy1DAuv0lfSkYWvQDxObeuWmm-RuMFw9de1qahI9mV21GiIMqN3rlPtjsXkuNcKdSWvnWWtzZGem1vr_WytPbnhMcY2gBjzs7JVd31tCVJKl4zk6JwNukCxFrzXwGbg4S9zZPtgJnh6Kv6ksvornyQ6-oq4z%7Cfetaaymh",
+              "title": "Facebook",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "routeId": "2efb5274-b08f-4c82-8455-29e7bab6fd95",
+      "name": "登出状态下，没有账号，给账号打上“账户失效”标签",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "1808b645-dd5c-445a-a428-88e5673a1814",
+          "title": "该界面没有账号",
+          "description": "打上账户失效标签",
+          "capturedAt": 1789446509,
+          "screenshot": "routes/002/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/002/steps/001/annotated.png",
+          "markup": "routes/002/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "Facebook",
+              "pagePath": "routes/002/steps/001/page.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "routeId": "a103227d-eec6-4d19-a340-354656adf067",
+      "name": "已登录账号，修改语言为英文",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "218cf3d5-d890-4350-8b08-1af9499641d4",
+          "title": "识别账号是否为英文语言",
+          "description": "检测为登录状态，如果在这之前这个账号被标记为账户失效，可以把标签去掉。可以根据你觉得合适的标识确认是否为英文，如果是，就结束了，如果不是，跳转到“https://www.facebook.com/settings?tab=language”这个语言修改页面",
+          "capturedAt": 1789440260,
+          "screenshot": "routes/003/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/003/steps/001/annotated.png",
+          "markup": "routes/003/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "(20+) Facebook",
+              "pagePath": "routes/003/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "db86e0cd-b15a-4663-8f8a-f61de86bc7dd",
+          "title": "点击修改语言",
+          "description": "你可以找合适的参照物来点击这里",
+          "capturedAt": 1789440836,
+          "screenshot": "routes/003/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/003/steps/002/annotated.png",
+          "markup": "routes/003/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/settings?tab=language",
+              "title": "(20+) Facebook",
+              "pagePath": "routes/003/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "a2eefa6b-8859-47c7-ac0b-4f78940a5e10",
+          "title": "输入us",
+          "description": "",
+          "capturedAt": 1789441025,
+          "screenshot": "routes/003/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/003/steps/003/annotated.png",
+          "markup": "routes/003/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/settings?tab=language",
+              "title": "(20+) Facebook",
+              "pagePath": "routes/003/steps/003/page.html"
+            }
+          }
+        },
+        {
+          "index": 4,
+          "stepId": "71fba2f2-68b3-4f4e-82dc-7bf9701e3a66",
+          "title": "点击English",
+          "description": "",
+          "capturedAt": 1789441044,
+          "screenshot": "routes/003/steps/004/screenshot.png",
+          "annotatedScreenshot": "routes/003/steps/004/annotated.png",
+          "markup": "routes/003/steps/004/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/settings?tab=language",
+              "title": "(20+) Facebook",
+              "pagePath": "routes/003/steps/004/page.html"
+            }
+          }
+        },
+        {
+          "index": 5,
+          "stepId": "b49ad3c2-a856-43d2-b02a-a547f526a7b9",
+          "title": "点击ok",
+          "description": "",
+          "capturedAt": 1789441157,
+          "screenshot": "routes/003/steps/005/screenshot.png",
+          "annotatedScreenshot": "routes/003/steps/005/annotated.png",
+          "markup": "routes/003/steps/005/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/settings?tab=language",
+              "title": "(20+) Facebook",
+              "pagePath": "routes/003/steps/005/page.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "routeId": "57013b97-d57a-475f-9eee-9bd423ce3dfe",
+      "name": "输入验证码验证真人，该账户失效",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "010a8f84-6fb9-4f08-9165-ad74616a3e25",
+          "title": "需要输入验证码，该账户判定失效",
+          "description": "打上失效标签",
+          "capturedAt": 1789450396,
+          "screenshot": "routes/004/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/004/steps/001/annotated.png",
+          "markup": "routes/004/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2F#",
+              "title": "Facebook",
+              "pagePath": "routes/004/steps/001/page.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "routeId": "ca7e1c8c-2cf4-48a8-a39a-0476c7f24f1c",
+      "name": "登出状态下，点击蓝色长框",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "4ec67d2e-ec02-40d6-a185-38af15f0eb35",
+          "title": "登陆进来了",
+          "description": "此时检查是否英文，不是就改成英文，并且如果此前被标记为失效账号了，把标记去掉",
+          "capturedAt": 1789451110,
+          "screenshot": "routes/005/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/005/steps/001/annotated.png",
+          "markup": "routes/005/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "(20+) Facebook",
+              "pagePath": "routes/005/steps/001/page.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "routeId": "c2527981-a8bd-4aba-a602-a113071db10d",
+      "name": "显示账号被锁，标记为账户失效",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "52b773de-ecb9-47c4-a055-8badc274cf8b",
+          "title": "显示账号被锁，标记为账户失效",
+          "description": "",
+          "capturedAt": 1789451281,
+          "screenshot": "routes/006/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/006/steps/001/annotated.png",
+          "markup": "routes/006/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/checkpoint/828281030927956/?next=https%3A%2F%2Fwww.facebook.com%2F#",
+              "title": "Facebook",
+              "pagePath": "routes/006/steps/001/page.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "routeId": "424668c7-c590-421c-92cc-2188ad654c98",
+      "name": "证明是真人验证，该为失效账户",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "8c8afd60-323e-4e12-bac6-77e6e75052e3",
+          "title": "人脸验证，此为账户失效",
+          "description": "打上失效账户标记",
+          "capturedAt": 1789451459,
+          "screenshot": "routes/007/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/007/steps/001/annotated.png",
+          "markup": "routes/007/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2F#",
+              "title": "Facebook",
+              "pagePath": "routes/007/steps/001/page.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "routeId": "7018590a-7383-4b5a-86fe-d50ff3d7f1f1",
+      "name": "登出状态多账号状态",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "83eb9e3f-f828-4946-9722-74ddc1d03e34",
+          "title": "登录状态有多个账号",
+          "description": "从上往下点击第一个头像",
+          "capturedAt": 1789451913,
+          "screenshot": "routes/008/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/008/steps/001/annotated.png",
+          "markup": "routes/008/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/",
+              "title": "Facebook",
+              "pagePath": "routes/008/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "2bea620f-122a-4a11-bc47-af14b0f811f0",
+          "title": "点击叉掉",
+          "description": "这个账号发现需要输入密码，点击叉掉",
+          "capturedAt": 1789451960,
+          "screenshot": "routes/008/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/008/steps/002/annotated.png",
+          "markup": "routes/008/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/?crypted_string=AYj1gyhNngLvgtw5qKqscc6FmTCmZtsMCwX2NDKaOCN_RticKye4h0FE7HsaqQjpoMKF7nLRPz7TDMlfxq3AJcmmbYDWQlNTY8Pj7UW-LPxBeOLE33GoSPeM-H7R2HGKagIrbqc9xzxXG5OGy2hcOB1IHQhDvT99fRALJVSBgmm_G_947i5B_2it5NoMGhtFAPAponbD136BbYTX1xQZxt7e%7Cfetaaymh",
+              "title": "Facebook",
+              "pagePath": "routes/008/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "19150ff2-490c-4bab-a8d5-a9a62c6526fe",
+          "title": "点击第二个头像",
+          "description": "第一个失效继续试第二个",
+          "capturedAt": 1789452038,
+          "screenshot": "routes/008/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/008/steps/003/annotated.png",
+          "markup": "routes/008/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/?crypted_string=AYj1gyhNngLvgtw5qKqscc6FmTCmZtsMCwX2NDKaOCN_RticKye4h0FE7HsaqQjpoMKF7nLRPz7TDMlfxq3AJcmmbYDWQlNTY8Pj7UW-LPxBeOLE33GoSPeM-H7R2HGKagIrbqc9xzxXG5OGy2hcOB1IHQhDvT99fRALJVSBgmm_G_947i5B_2it5NoMGhtFAPAponbD136BbYTX1xQZxt7e%7Cfetaaymh",
+              "title": "Facebook",
+              "pagePath": "routes/008/steps/003/page.html"
+            }
+          }
+        },
+        {
+          "index": 4,
+          "stepId": "231bdae9-6373-48a2-bbc2-f1e76c5b6b38",
+          "title": "标为账户失效",
+          "description": "因为一共两个账户都需要输入密码都是失效账号，直接给该浏览器标为失效",
+          "capturedAt": 1789452063,
+          "screenshot": "routes/008/steps/004/screenshot.png",
+          "annotatedScreenshot": "routes/008/steps/004/annotated.png",
+          "markup": "routes/008/steps/004/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/?crypted_string=AYj1gyhNngLvgtw5qKqscc6FmTCmZtsMCwX2NDKaOCN_RticKye4h0FE7HsaqQjpoMKF7nLRPz7TDMlfxq3AJcmmbYDWQlNTY8Pj7UW-LPxBeOLE33GoSPeM-H7R2HGKagIrbqc9xzxXG5OGy2hcOB1IHQhDvT99fRALJVSBgmm_G_947i5B_2it5NoMGhtFAPAponbD136BbYTX1xQZxt7e%7Cfetaaymh",
+              "title": "Facebook",
+              "pagePath": "routes/008/steps/004/page.html"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "routeId": "08aebc61-52b6-41a6-94ef-3210b6a35f67",
+      "name": "真人验证",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "fbba7940-7ab1-4f19-b33f-767e42ed2240",
+          "title": "需要真人验证，标记该账户为失效账户",
+          "description": "",
+          "capturedAt": 1789452458,
+          "screenshot": "routes/009/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/009/steps/001/annotated.png",
+          "markup": "routes/009/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/checkpoint/1501092823525282/?next=https%3A%2F%2Fwww.facebook.com%2F#",
+              "title": "Facebook",
+              "pagePath": "routes/009/steps/001/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

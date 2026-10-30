@@ -1,0 +1,581 @@
+{
+  "name": "fb-keywords-page",
+  "version": "1.1.2",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "Facebook采集关键词公共主页",
+    "de_DE": "Facebook采集关键词公共主页",
+    "es_ES": "Facebook采集关键词公共主页",
+    "fr_FR": "Facebook采集关键词公共主页",
+    "id_ID": "Facebook采集关键词公共主页",
+    "ja_JP": "Facebook采集关键词公共主页",
+    "ko_KR": "Facebook采集关键词公共主页",
+    "ms_MY": "Facebook采集关键词公共主页",
+    "pt_BR": "Facebook采集关键词公共主页",
+    "ru_RU": "Facebook采集关键词公共主页",
+    "th_TH": "Facebook采集关键词公共主页",
+    "vi_VN": "Facebook采集关键词公共主页",
+    "zh_CN": "Facebook采集关键词公共主页",
+    "zh_TW": "Facebook采集关键词公共主页"
+  },
+  "description": {
+    "en_US": "Search Facebook Pages by keyword and collect page links. Keywords are assigned one-to-one to browsers.",
+    "zh_CN": "按关键词搜索 Facebook 公共主页并采集链接；多关键词一对一分配给浏览器。",
+    "zh_TW": "依關鍵字搜尋 Facebook 粉絲專頁並採集連結；多關鍵字一對一分配給瀏覽器。",
+    "ja_JP": "キーワードでFacebook公開ページを検索しリンクを収集。キーワードをブラウザへ1対1割当。",
+    "ko_KR": "키워드로 Facebook 페이지를 검색해 링크를 수집. 키워드를 브라우저에 1:1 할당.",
+    "th_TH": "ค้นหาเพจ Facebook ตามคำค้นและเก็บลิงก์ จัดคำค้นให้เบราว์เซอร์แบบหนึ่งต่อหนึ่ง",
+    "id_ID": "Cari Halaman Facebook by kata kunci dan kumpulkan tautan. Kata kunci 1:1 ke browser.",
+    "ms_MY": "Cari Halaman Facebook ikut kata kunci dan kutip pautan. Kata kunci 1:1 ke pelayar.",
+    "vi_VN": "Tìm Trang Facebook theo từ khóa và thu thập liên kết. Gán từ khóa 1-1 cho trình duyệt.",
+    "de_DE": "Facebook-Seiten per Keyword suchen und Links sammeln. Keywords 1:1 an Browser.",
+    "es_ES": "Buscar Páginas de Facebook por palabra clave y recopilar enlaces. 1:1 a navegadores.",
+    "pt_BR": "Buscar Páginas do Facebook por palavra-chave e coletar links. 1:1 nos navegadores.",
+    "fr_FR": "Rechercher des Pages Facebook par mot-clé et collecter les liens. 1:1 aux navigateurs.",
+    "ru_RU": "Поиск Страниц Facebook по ключу и сбор ссылок. Ключи 1:1 браузерам."
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Targets",
+          "zh_CN": "采集目标",
+          "zh_TW": "採集目標",
+          "ja_JP": "対象",
+          "ko_KR": "대상",
+          "th_TH": "เป้าหมาย",
+          "id_ID": "Target",
+          "ms_MY": "Sasaran",
+          "vi_VN": "Mục tiêu",
+          "de_DE": "Ziele",
+          "es_ES": "Objetivos",
+          "pt_BR": "Alvos",
+          "fr_FR": "Cibles",
+          "ru_RU": "Цели"
+        },
+        "fields": [
+          {
+            "key": "keywords",
+            "type": "text",
+            "label": {
+              "en_US": "Keywords",
+              "zh_CN": "关键词（多行）",
+              "zh_TW": "關鍵字（多行）",
+              "ja_JP": "キーワード（複数行）",
+              "ko_KR": "키워드(여러 줄)",
+              "th_TH": "คำค้น (หลายบรรทัด)",
+              "id_ID": "Kata kunci",
+              "ms_MY": "Kata kunci",
+              "vi_VN": "Từ khóa (nhiều dòng)",
+              "de_DE": "Keywords (mehrzeilig)",
+              "es_ES": "Palabras clave (varias líneas)",
+              "pt_BR": "Palavras-chave (várias linhas)",
+              "fr_FR": "Mots-clés (plusieurs lignes)",
+              "ru_RU": "Ключевые слова"
+            },
+            "hint": {
+              "en_US": "One keyword per line. Each keyword is assigned to one browser in order. Extra browsers stay idle when keywords < browsers.",
+              "zh_CN": "每行一个关键词。按顺序一对一分配给浏览器；关键词少于浏览器时，多余浏览器不跑。",
+              "zh_TW": "每行一個關鍵字。依序一對一分配給瀏覽器；關鍵字少於瀏覽器時，多餘瀏覽器不跑。",
+              "ja_JP": "1行1キーワード。順にブラウザへ1対1。キーワードが少ないと余ったブラウザは未使用。",
+              "ko_KR": "한 줄에 키워드 하나. 순서대로 브라우저 1:1. 키워드가 적으면 남는 브라우저는 미사용.",
+              "th_TH": "หนึ่งคำต่อบรรทัด จัด 1:1 ให้เบราว์เซอร์ ถ้าคำน้อยกว่า เบราว์เซอร์ส่วนเกินไม่รัน",
+              "id_ID": "Satu kata kunci per baris. 1:1 ke browser. Browser lebih tidak dipakai.",
+              "ms_MY": "Satu kata kunci setiap baris. 1:1 ke pelayar. Pelayar lebih tidak jalan.",
+              "vi_VN": "Mỗi dòng một từ khóa. Gán 1-1 cho trình duyệt. Thừa trình duyệt thì không chạy.",
+              "de_DE": "Ein Keyword pro Zeile. 1:1 an Browser. Überzählige Browser bleiben idle.",
+              "es_ES": "Una palabra clave por línea. 1:1 a navegadores. Extra inactivos si hay menos claves.",
+              "pt_BR": "Uma palavra-chave por linha. 1:1 aos navegadores. Navegadores extras ficam ociosos.",
+              "fr_FR": "Un mot-clé par ligne. 1:1 aux navigateurs. Navigateurs en trop restent inactifs.",
+              "ru_RU": "По одному ключу в строке. 1:1 браузерам. Лишние браузеры не запускаются."
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "max_count",
+            "type": "text",
+            "label": {
+              "en_US": "Max pages per keyword",
+              "zh_CN": "每个关键词最多采集条数",
+              "zh_TW": "每個關鍵字最多採集條數",
+              "ja_JP": "キーワードあたり最大件数",
+              "ko_KR": "키워드당 최대 수집 수",
+              "th_TH": "เพจสูงสุดต่อคำค้น",
+              "id_ID": "Maks halaman per kata kunci",
+              "ms_MY": "Maks halaman setiap kata kunci",
+              "vi_VN": "Số trang tối đa mỗi từ khóa",
+              "de_DE": "Max. Seiten pro Keyword",
+              "es_ES": "Máx. páginas por palabra clave",
+              "pt_BR": "Máx. páginas por palavra-chave",
+              "fr_FR": "Max. pages par mot-clé",
+              "ru_RU": "Макс. страниц на ключ"
+            },
+            "hint": {
+              "en_US": "How many page links to collect for each keyword",
+              "zh_CN": "每个关键词最多采集多少条公共主页链接",
+              "zh_TW": "每個關鍵字最多採集多少條粉絲專頁連結",
+              "ja_JP": "各キーワードで収集するページリンク数",
+              "ko_KR": "키워드별 수집할 페이지 링크 수",
+              "th_TH": "จำนวนลิงก์เพจต่อคำค้น",
+              "id_ID": "Berapa tautan Halaman per kata kunci",
+              "ms_MY": "Berapa pautan Halaman setiap kata kunci",
+              "vi_VN": "Số liên kết Trang thu thập mỗi từ khóa",
+              "de_DE": "Wie viele Seiten-Links pro Keyword",
+              "es_ES": "Cuántos enlaces de Página recopilar por palabra clave",
+              "pt_BR": "Quantos links de Página coletar por palavra-chave",
+              "fr_FR": "Nombre de liens de Page à collecter par mot-clé",
+              "ru_RU": "Сколько ссылок Страниц собрать на ключ"
+            },
+            "inputType": "number",
+            "defaultValue": 20
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器",
+              "ja_JP": "ブラウザ",
+              "ko_KR": "브라우저",
+              "th_TH": "เบราว์เซอร์",
+              "id_ID": "Browser",
+              "ms_MY": "Pelayar",
+              "vi_VN": "Trình duyệt",
+              "de_DE": "Browser",
+              "es_ES": "Navegadores",
+              "pt_BR": "Navegadores",
+              "fr_FR": "Navigateurs",
+              "ru_RU": "Браузеры"
+            },
+            "hint": {
+              "en_US": "Select devices. Keywords are assigned 1:1 in order; unused browsers stay idle when fewer keywords.",
+              "zh_CN": "选择设备。关键词按顺序一对一分配；关键词更少时多余设备不跑。",
+              "zh_TW": "選擇裝置。關鍵字依序一對一分配；關鍵字較少時多餘裝置不跑。",
+              "ja_JP": "デバイス選択。キーワード1対1。少ないと余りは未使用。",
+              "ko_KR": "기기 선택. 키워드 1:1. 적으면 나머지는 미사용.",
+              "th_TH": "เลือกอุปกรณ์ คำค้น 1:1 ส่วนเกินไม่รัน",
+              "id_ID": "Pilih perangkat. Kata kunci 1:1; lebih tidak dipakai.",
+              "ms_MY": "Pilih peranti. Kata kunci 1:1; lebih tidak jalan.",
+              "vi_VN": "Chọn thiết bị. Từ khóa 1-1; thừa thì không chạy.",
+              "de_DE": "Geräte wählen. Keywords 1:1; überzählige bleiben idle.",
+              "es_ES": "Seleccione dispositivos. Claves 1:1; extras inactivos si hay menos claves.",
+              "pt_BR": "Selecione dispositivos. Palavras-chave 1:1; extras ociosos se houver menos chaves.",
+              "fr_FR": "Sélectionnez les appareils. Mots-clés 1:1 ; extras inactifs si moins de clés.",
+              "ru_RU": "Выберите устройства. Ключи 1:1; лишние простаивают."
+            },
+            "single": false,
+            "platform": "facebook",
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Schedule",
+          "zh_CN": "频率规划控制",
+          "zh_TW": "頻率規劃控制",
+          "ja_JP": "スケジュール",
+          "ko_KR": "일정",
+          "th_TH": "กำหนดการ",
+          "id_ID": "Jadwal",
+          "ms_MY": "Jadual",
+          "vi_VN": "Lịch trình",
+          "de_DE": "Zeitplan",
+          "es_ES": "Programación",
+          "pt_BR": "Agendamento",
+          "fr_FR": "Planification",
+          "ru_RU": "Расписание"
+        },
+        "fields": [
+          {
+            "key": "daily_limit",
+            "type": "text",
+            "label": {
+              "en_US": "Daily limit",
+              "zh_CN": "每日上限",
+              "zh_TW": "每日上限",
+              "ja_JP": "1日の上限",
+              "ko_KR": "일일 한도",
+              "th_TH": "ขีดจำกัดรายวัน",
+              "id_ID": "Batas harian",
+              "ms_MY": "Had harian",
+              "vi_VN": "Giới hạn hàng ngày",
+              "de_DE": "Tageslimit",
+              "es_ES": "Límite diario",
+              "pt_BR": "Limite diário",
+              "fr_FR": "Limite quotidienne",
+              "ru_RU": "Дневной лимит"
+            },
+            "hint": {
+              "en_US": "Max tasks assigned to each device per day",
+              "zh_CN": "每个设备每天最多分配多少个任务",
+              "zh_TW": "每個裝置每天最多分配多少個任務",
+              "ja_JP": "各デバイスに1日あたりの最大タスク数",
+              "ko_KR": "기기당 하루 최대 할당 작업 수",
+              "th_TH": "งานสูงสุดต่ออุปกรณ์ต่อวัน",
+              "id_ID": "Maks tugas per perangkat per hari",
+              "ms_MY": "Maks tugas setiap peranti sehari",
+              "vi_VN": "Số nhiệm vụ tối đa mỗi thiết bị mỗi ngày",
+              "de_DE": "Max. Aufgaben pro Gerät und Tag",
+              "es_ES": "Máx. de tareas por dispositivo y día",
+              "pt_BR": "Máx. de tarefas por dispositivo por dia",
+              "fr_FR": "Max. tâches par appareil et par jour",
+              "ru_RU": "Макс. задач на устройство в день"
+            },
+            "inputType": "number",
+            "defaultValue": 10
+          },
+          {
+            "key": "during_min",
+            "type": "text",
+            "label": {
+              "en_US": "Min interval (s)",
+              "zh_CN": "最小间隔（s）",
+              "zh_TW": "最小間隔（s）",
+              "ja_JP": "最小間隔（秒）",
+              "ko_KR": "최소 간격(초)",
+              "th_TH": "ช่วงห่างขั้นต่ำ (วินาที)",
+              "id_ID": "Interval min (d)",
+              "ms_MY": "Selang min (s)",
+              "vi_VN": "Khoảng tối thiểu (giây)",
+              "de_DE": "Min. Abstand (s)",
+              "es_ES": "Intervalo mín. (s)",
+              "pt_BR": "Intervalo mín. (s)",
+              "fr_FR": "Intervalle min. (s)",
+              "ru_RU": "Мин. интервал (с)"
+            },
+            "hint": {
+              "en_US": "Min interval between runs on the same device (seconds)",
+              "zh_CN": "同一设备两次任务之间的最小间隔（秒）",
+              "zh_TW": "同一裝置兩次任務之間的最小間隔（秒）",
+              "ja_JP": "同一デバイス実行間隔の最小値（秒）",
+              "ko_KR": "동일 기기 실행 간 최소 간격(초)",
+              "th_TH": "ช่วงห่างขั้นต่ำระหว่างรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "id_ID": "Interval min antar jalan pada perangkat sama (detik)",
+              "ms_MY": "Selang min antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối thiểu giữa các lần chạy trên cùng thiết bị (giây)",
+              "de_DE": "Min. Abstand zwischen Läufen auf demselben Gerät (s)",
+              "es_ES": "Intervalo mín. entre ejecuciones en el mismo dispositivo (s)",
+              "pt_BR": "Intervalo mín. entre execuções no mesmo dispositivo (s)",
+              "fr_FR": "Intervalle min. entre exécutions sur le même appareil (s)",
+              "ru_RU": "Мин. интервал между запусками на одном устройстве (с)"
+            },
+            "defaultValue": "60"
+          },
+          {
+            "key": "during_max",
+            "type": "text",
+            "label": {
+              "en_US": "Max interval (s)",
+              "zh_CN": "最大间隔（s）",
+              "zh_TW": "最大間隔（s）",
+              "ja_JP": "最大間隔（秒）",
+              "ko_KR": "최대 간격(초)",
+              "th_TH": "ช่วงห่างสูงสุด (วินาที)",
+              "id_ID": "Interval maks (d)",
+              "ms_MY": "Selang maks (s)",
+              "vi_VN": "Khoảng tối đa (giây)",
+              "de_DE": "Max. Abstand (s)",
+              "es_ES": "Intervalo máx. (s)",
+              "pt_BR": "Intervalo máx. (s)",
+              "fr_FR": "Intervalle max. (s)",
+              "ru_RU": "Макс. интервал (с)"
+            },
+            "hint": {
+              "en_US": "Max interval between runs on the same device (seconds)",
+              "zh_CN": "同一设备两次任务之间的最大间隔（秒）",
+              "zh_TW": "同一裝置兩次任務之間的最大間隔（秒）",
+              "ja_JP": "同一デバイス実行間隔の最大値（秒）",
+              "ko_KR": "동일 기기 실행 간 최대 간격(초)",
+              "th_TH": "ช่วงห่างสูงสุดระหว่างรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "id_ID": "Interval maks antar jalan pada perangkat sama (detik)",
+              "ms_MY": "Selang maks antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối đa giữa các lần chạy trên cùng thiết bị (giây)",
+              "de_DE": "Max. Abstand zwischen Läufen auf demselben Gerät (s)",
+              "es_ES": "Intervalo máx. entre ejecuciones en el mismo dispositivo (s)",
+              "pt_BR": "Intervalo máx. entre execuções no mesmo dispositivo (s)",
+              "fr_FR": "Intervalle max. entre exécutions sur le même appareil (s)",
+              "ru_RU": "Макс. интервал между запусками на одном устройстве (с)"
+            },
+            "defaultValue": "600"
+          },
+          {
+            "key": "daily_time_start",
+            "type": "time",
+            "label": {
+              "en_US": "Daily start time",
+              "zh_CN": "每日执行开始时刻",
+              "zh_TW": "每日執行開始時刻",
+              "ja_JP": "毎日の開始時刻",
+              "ko_KR": "일일 시작 시각",
+              "th_TH": "เวลาเริ่มรายวัน",
+              "id_ID": "Waktu mulai harian",
+              "ms_MY": "Masa mula harian",
+              "vi_VN": "Giờ bắt đầu mỗi ngày",
+              "de_DE": "Täglicher Startzeitpunkt",
+              "es_ES": "Hora de inicio diaria",
+              "pt_BR": "Horário de início diário",
+              "fr_FR": "Heure de début quotidienne",
+              "ru_RU": "Ежедневное время начала"
+            },
+            "defaultValue": "09:00"
+          },
+          {
+            "key": "daily_time_end",
+            "type": "time",
+            "label": {
+              "en_US": "Daily end time",
+              "zh_CN": "每日执行结束时刻",
+              "zh_TW": "每日執行結束時刻",
+              "ja_JP": "毎日の終了時刻",
+              "ko_KR": "일일 종료 시각",
+              "th_TH": "เวลาสิ้นสุดรายวัน",
+              "id_ID": "Waktu selesai harian",
+              "ms_MY": "Masa tamat harian",
+              "vi_VN": "Giờ kết thúc mỗi ngày",
+              "de_DE": "Täglicher Endzeitpunkt",
+              "es_ES": "Hora de fin diaria",
+              "pt_BR": "Horário de término diário",
+              "fr_FR": "Heure de fin quotidienne",
+              "ru_RU": "Ежедневное время окончания"
+            },
+            "defaultValue": "18:00"
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Search",
+          "zh_CN": "搜索参数",
+          "zh_TW": "搜尋參數",
+          "ja_JP": "検索",
+          "ko_KR": "검색",
+          "th_TH": "ค้นหา",
+          "id_ID": "Pencarian",
+          "ms_MY": "Carian",
+          "vi_VN": "Tìm kiếm",
+          "de_DE": "Suche",
+          "es_ES": "Búsqueda",
+          "pt_BR": "Busca",
+          "fr_FR": "Recherche",
+          "ru_RU": "Поиск"
+        },
+        "fields": [
+          {
+            "key": "keyword",
+            "type": "text",
+            "label": {
+              "en_US": "Keyword",
+              "zh_CN": "关键词",
+              "zh_TW": "關鍵字",
+              "ja_JP": "キーワード",
+              "ko_KR": "키워드",
+              "th_TH": "คำค้น",
+              "id_ID": "Kata kunci",
+              "ms_MY": "Kata kunci",
+              "vi_VN": "Từ khóa",
+              "de_DE": "Keyword",
+              "es_ES": "Palabra clave",
+              "pt_BR": "Palavra-chave",
+              "fr_FR": "Mot-clé",
+              "ru_RU": "Ключевое слово"
+            },
+            "defaultValue": ""
+          },
+          {
+            "key": "max_count",
+            "type": "text",
+            "label": {
+              "en_US": "Max pages",
+              "zh_CN": "最多采集条数",
+              "zh_TW": "最多採集條數",
+              "ja_JP": "最大件数",
+              "ko_KR": "최대 수집 수",
+              "th_TH": "เพจสูงสุด",
+              "id_ID": "Maks halaman",
+              "ms_MY": "Maks halaman",
+              "vi_VN": "Số trang tối đa",
+              "de_DE": "Max. Seiten",
+              "es_ES": "Máx. páginas",
+              "pt_BR": "Máx. páginas",
+              "fr_FR": "Max. pages",
+              "ru_RU": "Макс. страниц"
+            },
+            "inputType": "number",
+            "defaultValue": 20
+          }
+        ]
+      }
+    ],
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "zh_CN": "执行结果",
+          "zh_TW": "執行結果",
+          "ja_JP": "実行結果",
+          "ko_KR": "실행 결과",
+          "th_TH": "ผลการรัน",
+          "id_ID": "Hasil eksekusi",
+          "ms_MY": "Hasil larian",
+          "vi_VN": "Kết quả chạy",
+          "de_DE": "Ausführungsergebnis",
+          "es_ES": "Resultado de ejecución",
+          "pt_BR": "Resultado da execução",
+          "fr_FR": "Résultat d'exécution",
+          "ru_RU": "Результат выполнения"
+        },
+        "fields": [
+          {
+            "key": "keyword",
+            "type": "text",
+            "label": {
+              "en_US": "Keyword",
+              "zh_CN": "关键词",
+              "zh_TW": "關鍵字",
+              "ja_JP": "キーワード",
+              "ko_KR": "키워드",
+              "th_TH": "คำค้น",
+              "id_ID": "Kata kunci",
+              "ms_MY": "Kata kunci",
+              "vi_VN": "Từ khóa",
+              "de_DE": "Keyword",
+              "es_ES": "Palabra clave",
+              "pt_BR": "Palavra-chave",
+              "fr_FR": "Mot-clé",
+              "ru_RU": "Ключевое слово"
+            }
+          },
+          {
+            "key": "collectedCount",
+            "type": "stat",
+            "label": {
+              "en_US": "Collected pages",
+              "zh_CN": "采集条数",
+              "zh_TW": "採集條數",
+              "ja_JP": "収集件数",
+              "ko_KR": "수집 수",
+              "th_TH": "จำนวนเพจที่เก็บ",
+              "id_ID": "Halaman terkumpul",
+              "ms_MY": "Halaman dikutip",
+              "vi_VN": "Số trang đã thu",
+              "de_DE": "Gesammelte Seiten",
+              "es_ES": "Páginas recopiladas",
+              "pt_BR": "Páginas coletadas",
+              "fr_FR": "Pages collectées",
+              "ru_RU": "Собрано страниц"
+            }
+          },
+          {
+            "key": "finalUrl",
+            "type": "text",
+            "label": {
+              "en_US": "Final URL",
+              "zh_CN": "最终 URL",
+              "zh_TW": "最終 URL",
+              "ja_JP": "最終 URL",
+              "ko_KR": "최종 URL",
+              "th_TH": "URL สุดท้าย",
+              "id_ID": "URL akhir",
+              "ms_MY": "URL akhir",
+              "vi_VN": "URL cuối",
+              "de_DE": "Endgültige URL",
+              "es_ES": "URL final",
+              "pt_BR": "URL final",
+              "fr_FR": "URL finale",
+              "ru_RU": "Итоговый URL"
+            }
+          }
+        ]
+      }
+    ],
+    "intermediateDataSchema": {
+      "fields": [
+        {
+          "key": "keyword",
+          "type": "text",
+          "label": {
+            "en_US": "Keyword",
+            "zh_CN": "关键词",
+            "zh_TW": "關鍵字",
+            "ja_JP": "キーワード",
+            "ko_KR": "키워드",
+            "th_TH": "คำค้น",
+            "id_ID": "Kata kunci",
+            "ms_MY": "Kata kunci",
+            "vi_VN": "Từ khóa",
+            "de_DE": "Keyword",
+            "es_ES": "Palabra clave",
+            "pt_BR": "Palavra-chave",
+            "fr_FR": "Mot-clé",
+            "ru_RU": "Ключевое слово"
+          }
+        },
+        {
+          "key": "pageName",
+          "type": "text",
+          "label": {
+            "en_US": "Page name",
+            "zh_CN": "主页名称",
+            "zh_TW": "專頁名稱",
+            "ja_JP": "ページ名",
+            "ko_KR": "페이지 이름",
+            "th_TH": "ชื่อเพจ",
+            "id_ID": "Nama Halaman",
+            "ms_MY": "Nama Halaman",
+            "vi_VN": "Tên Trang",
+            "de_DE": "Seitenname",
+            "es_ES": "Nombre de la Página",
+            "pt_BR": "Nome da Página",
+            "fr_FR": "Nom de la Page",
+            "ru_RU": "Название Страницы"
+          }
+        },
+        {
+          "key": "pageUrl",
+          "type": "text",
+          "label": {
+            "en_US": "Page URL",
+            "zh_CN": "主页链接",
+            "zh_TW": "專頁連結",
+            "ja_JP": "ページ URL",
+            "ko_KR": "페이지 URL",
+            "th_TH": "URL เพจ",
+            "id_ID": "URL Halaman",
+            "ms_MY": "URL Halaman",
+            "vi_VN": "URL Trang",
+            "de_DE": "Seiten-URL",
+            "es_ES": "URL de la Página",
+            "pt_BR": "URL da Página",
+            "fr_FR": "URL de la Page",
+            "ru_RU": "URL Страницы"
+          }
+        }
+      ]
+    },
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}

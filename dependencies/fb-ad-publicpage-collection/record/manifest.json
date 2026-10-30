@@ -1,0 +1,106 @@
+{
+  "version": 2,
+  "uuid": "b7decdf9-86a8-4487-a552-7c92595df564",
+  "name": "Facebook广告资料库-采集",
+  "description": "",
+  "deviceType": "browser",
+  "socialCategoryId": 1,
+  "deviceId": 0,
+  "createdAt": 1789026159,
+  "updatedAt": 1792390478,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "ea1c5a37-5a48-4590-81fa-76e2e2ef8214",
+      "name": "Facebook资料库筛选",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "995f92fa-3ba7-44ea-9df9-8cafd8addc24",
+          "title": "我给你地区，你点击搜索，不填默认china",
+          "description": "",
+          "capturedAt": 1789029775,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CN&is_targeted_country=false&media_type=all&q=%E5%87%8F%E8%82%A5&search_type=keyword_unordered&sort_data[mode]=total_impressions&sort_data[direction]=desc",
+              "title": "Ad Library",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "92496fe9-e533-41d5-9ef9-daf91531b16c",
+          "title": "我给你关键词，回车搜索",
+          "description": "",
+          "capturedAt": 1789029854,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CN&is_targeted_country=false&media_type=all&q=%E5%87%8F%E8%82%A5&search_type=keyword_unordered&sort_data[mode]=total_impressions&sort_data[direction]=desc",
+              "title": "Ad Library",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        },
+        {
+          "index": 3,
+          "stepId": "eb6317d9-0b88-4c69-81e0-2911a1c96aa9",
+          "title": "选择Most recent",
+          "description": "",
+          "capturedAt": 1789030089,
+          "screenshot": "routes/001/steps/003/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/003/annotated.png",
+          "markup": "routes/001/steps/003/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CN&is_targeted_country=false&media_type=all&q=%E5%87%8F%E8%82%A5&search_type=keyword_unordered&sort_data[mode]=relevancy_monthly_grouped&sort_data[direction]=desc",
+              "title": "Ad Library",
+              "pagePath": "routes/001/steps/003/page.html"
+            }
+          }
+        },
+        {
+          "index": 4,
+          "stepId": "7a624f18-87b4-4fd9-8a94-d49d69c301aa",
+          "title": "依次复制公共主页链接地址并储存",
+          "description": "",
+          "capturedAt": 1789030130,
+          "screenshot": "routes/001/steps/004/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/004/annotated.png",
+          "markup": "routes/001/steps/004/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CN&is_targeted_country=false&media_type=all&q=%E5%87%8F%E8%82%A5&search_type=keyword_unordered&sort_data[mode]=relevancy_monthly_grouped&sort_data[direction]=desc",
+              "title": "Ad Library",
+              "pagePath": "routes/001/steps/004/page.html"
+            }
+          }
+        },
+        {
+          "index": 5,
+          "stepId": "af1eefbe-edb7-4d76-af1e-9fa64a9a055a",
+          "title": "往下滑，继续复制主页链接并储存，如此往复，一直到划不动为止，关闭浏览器",
+          "description": "",
+          "capturedAt": 1789030195,
+          "screenshot": "routes/001/steps/005/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/005/annotated.png",
+          "markup": "routes/001/steps/005/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/ads/library/?active_status=all&ad_type=all&country=CN&is_targeted_country=false&media_type=all&q=%E5%87%8F%E8%82%A5&search_type=keyword_unordered&sort_data[mode]=relevancy_monthly_grouped&sort_data[direction]=desc",
+              "title": "Ad Library",
+              "pagePath": "routes/001/steps/005/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

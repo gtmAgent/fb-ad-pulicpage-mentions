@@ -1,0 +1,16 @@
+{
+  "format": "xport-github-project",
+  "formatVersion": 1,
+  "kind": "workflow",
+  "exportedAt": 1793348767,
+  "workflow": {
+    "cmd": "fb-ad-pulicpage-mentions",
+    "name": "Fb巡检+采主页+评论提及",
+    "allowedAutomationCmds": [
+      "fb-ad-publicpage-collection",
+      "fb-auto-check",
+      "fb-keywords-page",
+      "fb-page-comment-mentions"
+    ]
+  }
+}

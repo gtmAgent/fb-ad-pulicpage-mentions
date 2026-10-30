@@ -1,0 +1,55 @@
+{
+  "version": 2,
+  "uuid": "12435ca1-8e30-47b9-9994-9e9fd3d46832",
+  "name": "Facebook公共主页评论/提及",
+  "description": "",
+  "deviceType": "browser",
+  "socialCategoryId": 1,
+  "deviceId": 0,
+  "createdAt": 1789366618,
+  "updatedAt": 1792390495,
+  "routes": [
+    {
+      "index": 1,
+      "routeId": "bbd20138-1978-41ed-9c8f-6145fc4b7ac7",
+      "name": "Facebook主页评论",
+      "description": "",
+      "steps": [
+        {
+          "index": 1,
+          "stepId": "8e7eb558-6801-4133-b42e-6e9b0166f8c8",
+          "title": "输入评论内容/图片，如果未填就跳过，点击发布",
+          "description": "",
+          "capturedAt": 1789366671,
+          "screenshot": "routes/001/steps/001/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/001/annotated.png",
+          "markup": "routes/001/steps/001/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/profile.php?id=100092692962252#",
+              "title": "(1) Facebook",
+              "pagePath": "routes/001/steps/001/page.html"
+            }
+          }
+        },
+        {
+          "index": 2,
+          "stepId": "26d91295-f262-4769-9632-66c3337b286c",
+          "title": "点击提及，输入文案/图片/视频，如果未填就跳过，点击发布",
+          "description": "",
+          "capturedAt": 1789366721,
+          "screenshot": "routes/001/steps/002/screenshot.png",
+          "annotatedScreenshot": "routes/001/steps/002/annotated.png",
+          "markup": "routes/001/steps/002/markup.json",
+          "meta": {
+            "browser": {
+              "url": "https://www.facebook.com/profile.php?id=100092692962252&sk=mentions",
+              "title": "(1) DramaBox-new drama&movies11 | Facebook",
+              "pagePath": "routes/001/steps/002/page.html"
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

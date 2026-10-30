@@ -1,0 +1,727 @@
+{
+  "name": "fb-ad-publicpage-collection",
+  "version": "1.0.10",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "Facebook广告主公共主页采集",
+    "de_DE": "Facebook广告主公共主页采集",
+    "es_ES": "Facebook广告主公共主页采集",
+    "fr_FR": "Facebook广告主公共主页采集",
+    "id_ID": "Facebook广告主公共主页采集",
+    "ja_JP": "Facebook广告主公共主页采集",
+    "ko_KR": "Facebook广告主公共主页采集",
+    "ms_MY": "Facebook广告主公共主页采集",
+    "pt_BR": "Facebook广告主公共主页采集",
+    "ru_RU": "Facebook广告主公共主页采集",
+    "th_TH": "Facebook广告主公共主页采集",
+    "vi_VN": "Facebook广告主公共主页采集",
+    "zh_CN": "Facebook广告主公共主页采集",
+    "zh_TW": "Facebook广告主公共主页采集"
+  },
+  "description": {
+    "en_US": "Search Meta Ad Library by country code and keyword, sort by Most recent, and collect public Page URLs.",
+    "zh_CN": "按国家代码与关键词搜索 Meta 广告资料库，按最新排序，采集公共主页链接。",
+    "zh_TW": "依國家代碼與關鍵字搜尋 Meta 廣告資料庫，依最新排序，採集公共主頁網址。",
+    "ja_JP": "国コードとキーワードで Meta 広告ライブラリを検索し、最新順で公開ページ URL を収集します。",
+    "ko_KR": "국가 코드와 키워드로 Meta 광고 라이브러리를 검색하고 최신순으로 공개 페이지 URL을 수집합니다.",
+    "th_TH": "ค้นหา Meta Ad Library ด้วยรหัสประเทศและคำค้น เรียงล่าสุด และเก็บ URL เพจสาธารณะ",
+    "id_ID": "Cari Meta Ad Library dengan kode negara dan kata kunci, urutkan terbaru, kumpulkan URL Halaman publik.",
+    "ms_MY": "Cari Meta Ad Library dengan kod negara dan kata kunci, isih terbaru, kumpul URL Halaman awam.",
+    "vi_VN": "Tìm Meta Ad Library theo mã quốc gia và từ khóa, sắp xếp mới nhất, thu thập URL trang công khai.",
+    "de_DE": "Meta Ad Library nach Ländercode und Keyword durchsuchen, nach Neueste sortieren und öffentliche Seiten-URLs sammeln.",
+    "es_ES": "Busca en la biblioteca de anuncios de Meta por código de país y palabra clave, ordena por más recientes y recopila URLs de páginas públicas.",
+    "pt_BR": "Pesquise a Biblioteca de Anúncios da Meta por código do país e palavra-chave, ordene por mais recentes e colete URLs de Páginas públicas.",
+    "fr_FR": "Recherchez la bibliothèque publicitaire Meta par code pays et mot-clé, triez par Plus récents et collectez les URL de Pages publiques.",
+    "ru_RU": "Поиск в библиотеке рекламы Meta по коду страны и ключевому слову, сортировка по новизне и сбор URL публичных страниц."
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-browser-sdk": "file:../xport_browser_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportAutomation": {
+    "taskGroupConfig": [
+      {
+        "title": {
+          "en_US": "Keywords / devices",
+          "zh_CN": "关键词与设备",
+          "zh_TW": "關鍵字與裝置",
+          "ja_JP": "キーワード/デバイス",
+          "ko_KR": "키워드/기기",
+          "th_TH": "คำค้น/อุปกรณ์",
+          "id_ID": "Kata kunci/perangkat",
+          "ms_MY": "Kata kunci/peranti",
+          "vi_VN": "Từ khóa/thiết bị",
+          "de_DE": "Keywords/Geräte",
+          "es_ES": "Palabras clave/dispositivos",
+          "pt_BR": "Palavras-chave/dispositivos",
+          "fr_FR": "Mots-clés/appareils",
+          "ru_RU": "Ключевые слова/устройства"
+        },
+        "fields": [
+          {
+            "key": "keywords",
+            "type": "text",
+            "label": {
+              "en_US": "Search keywords",
+              "zh_CN": "搜索关键词",
+              "zh_TW": "搜尋關鍵字",
+              "ja_JP": "検索キーワード",
+              "ko_KR": "검색 키워드",
+              "th_TH": "คำค้นหา",
+              "id_ID": "Kata kunci pencarian",
+              "ms_MY": "Kata kunci carian",
+              "vi_VN": "Từ khóa tìm kiếm",
+              "de_DE": "Suchbegriffe",
+              "es_ES": "Palabras clave de búsqueda",
+              "pt_BR": "Palavras-chave de busca",
+              "fr_FR": "Mots-clés de recherche",
+              "ru_RU": "Ключевые слова поиска"
+            },
+            "hint": {
+              "en_US": "One keyword per line; each line becomes one sub-task. Keywords are evenly assigned across selected browsers (if fewer keywords than browsers, a random subset of browsers is used).",
+              "zh_CN": "支持多行，每一行一个关键词对应一条子任务；关键词会平均分配到所选浏览器（关键词少于浏览器时，随机使用等量浏览器）",
+              "zh_TW": "支援多行，每一行一個關鍵字對應一條子任務；關鍵字會平均分配到所選瀏覽器（關鍵字少於瀏覽器時，隨機使用等量瀏覽器）",
+              "ja_JP": "1行に1キーワード。各行が1サブタスク。キーワードは選択ブラウザへ均等割当（キーワードが少ない場合はランダムに同数のブラウザを使用）",
+              "ko_KR": "한 줄에 키워드 하나. 각 줄이 하위 작업. 키워드는 선택 브라우저에 균등 배분(키워드가 더 적으면 무작위 동일 수 브라우저 사용)",
+              "th_TH": "หนึ่งคำค้นต่อบรรทัด แต่ละบรรทัดเป็นหนึ่งงานย่อย แจกคำค้นให้เบราว์เซอร์อย่างเท่าๆ กัน (ถ้าคำค้นน้อยกว่าจะสุ่มใช้เบราว์เซอร์จำนวนเท่ากัน)",
+              "id_ID": "Satu kata kunci per baris; setiap baris satu subtugas. Kata kunci dibagikan merata ke browser (jika lebih sedikit, subset acak dipakai)",
+              "ms_MY": "Satu kata kunci setiap baris; setiap baris satu subtugas. Kata kunci diagihkan sama rata (jika kurang, subset rawak digunakan)",
+              "vi_VN": "Mỗi dòng một từ khóa; mỗi dòng một nhiệm vụ con. Từ khóa được phân đều cho trình duyệt (nếu ít hơn thì chọn ngẫu nhiên cùng số trình duyệt)",
+              "de_DE": "Ein Suchbegriff pro Zeile; jede Zeile eine Unteraufgabe. Keywords werden gleichmäßig auf Browser verteilt (bei weniger Keywords zufällige Teilmenge)",
+              "es_ES": "Una palabra clave por línea; cada línea es una subtarea. Se asignan de forma uniforme a los navegadores (si hay menos, se usa un subconjunto aleatorio)",
+              "pt_BR": "Uma palavra-chave por linha; cada linha é uma subtarefa. Palavras-chave são distribuídas igualmente (se houver menos, usa-se um subconjunto aleatório)",
+              "fr_FR": "Un mot-clé par ligne ; chaque ligne est une sous-tâche. Répartition égale sur les navigateurs (si moins de mots-clés, sous-ensemble aléatoire)",
+              "ru_RU": "Одно ключевое слово в строке; каждая строка — подзадача. Равномерное распределение по браузерам (если слов меньше — случайное подмножество)"
+            },
+            "multiline": true,
+            "maxLines": 50,
+            "defaultValue": ""
+          },
+          {
+            "key": "country",
+            "type": "text",
+            "label": {
+              "en_US": "Country code",
+              "zh_CN": "国家代码",
+              "zh_TW": "國家代碼",
+              "ja_JP": "国コード",
+              "ko_KR": "국가 코드",
+              "th_TH": "รหัสประเทศ",
+              "id_ID": "Kode negara",
+              "ms_MY": "Kod negara",
+              "vi_VN": "Mã quốc gia",
+              "de_DE": "Ländercode",
+              "es_ES": "Código de país",
+              "pt_BR": "Código do país",
+              "fr_FR": "Code pays",
+              "ru_RU": "Код страны"
+            },
+            "hint": {
+              "en_US": "Shared by all sub-tasks. ISO code e.g. CN / US / JP (default CN)",
+              "zh_CN": "整组共用。国家代码如 CN / US / JP（默认 CN）",
+              "zh_TW": "整組共用。國家代碼如 CN / US / JP（預設 CN）",
+              "ja_JP": "全サブタスク共通。国コード例：CN / US / JP（既定 CN）",
+              "ko_KR": "모든 하위 작업 공용. 국가 코드 예: CN / US / JP (기본 CN)",
+              "th_TH": "ใช้ร่วมทั้งกลุ่ม รหัสประเทศ เช่น CN / US / JP (ค่าเริ่ม CN)",
+              "id_ID": "Berlaku untuk semua subtugas. Kode negara mis. CN / US / JP (default CN)",
+              "ms_MY": "Digunakan semua subtugas. Kod negara cth. CN / US / JP (lalai CN)",
+              "vi_VN": "Dùng chung cả nhóm. Mã quốc gia ví dụ CN / US / JP (mặc định CN)",
+              "de_DE": "Gilt für alle Unteraufgaben. Ländercode z. B. CN / US / JP (Standard CN)",
+              "es_ES": "Compartido por todas las subtareas. Código p. ej. CN / US / JP (predeterminado CN)",
+              "pt_BR": "Compartilhado por todas as subtarefas. Código ex.: CN / US / JP (padrão CN)",
+              "fr_FR": "Partagé par toutes les sous-tâches. Code ex. CN / US / JP (défaut CN)",
+              "ru_RU": "Общий для всех подзадач. Код страны, напр. CN / US / JP (по умолчанию CN)"
+            },
+            "defaultValue": "CN"
+          },
+          {
+            "key": "max_count",
+            "type": "text",
+            "label": {
+              "en_US": "Max pages per keyword",
+              "zh_CN": "每个关键词最多采集条数",
+              "zh_TW": "每個關鍵字最多採集條數",
+              "ja_JP": "キーワードあたり最大収集数",
+              "ko_KR": "키워드당 최대 수집 수",
+              "th_TH": "จำนวนสูงสุดต่อคำค้น",
+              "id_ID": "Maks halaman per kata kunci",
+              "ms_MY": "Maks halaman per kata kunci",
+              "vi_VN": "Số trang tối đa mỗi từ khóa",
+              "de_DE": "Max. Seiten pro Keyword",
+              "es_ES": "Máx. de páginas por palabra clave",
+              "pt_BR": "Máx. de páginas por palavra-chave",
+              "fr_FR": "Nombre max. de pages par mot-clé",
+              "ru_RU": "Макс. страниц на ключевое слово"
+            },
+            "hint": {
+              "en_US": "Shared by all sub-tasks (default 50)",
+              "zh_CN": "整组共用（默认 50）",
+              "zh_TW": "整組共用（預設 50）",
+              "ja_JP": "全サブタスク共通（既定50）",
+              "ko_KR": "모든 하위 작업 공용(기본 50)",
+              "th_TH": "ใช้ร่วมทั้งกลุ่ม (ค่าเริ่ม 50)",
+              "id_ID": "Berlaku untuk semua subtugas (default 50)",
+              "ms_MY": "Digunakan semua subtugas (lalai 50)",
+              "vi_VN": "Dùng chung cả nhóm (mặc định 50)",
+              "de_DE": "Gilt für alle Unteraufgaben (Standard 50)",
+              "es_ES": "Compartido por todas las subtareas (predeterminado 50)",
+              "pt_BR": "Compartilhado por todas as subtarefas (padrão 50)",
+              "fr_FR": "Partagé par toutes les sous-tâches (défaut 50)",
+              "ru_RU": "Общий для всех подзадач (по умолчанию 50)"
+            },
+            "inputType": "number",
+            "defaultValue": 50
+          },
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器",
+              "ja_JP": "ブラウザ",
+              "ko_KR": "브라우저",
+              "th_TH": "เบราว์เซอร์",
+              "id_ID": "Browser",
+              "ms_MY": "Pelayar",
+              "vi_VN": "Trình duyệt",
+              "de_DE": "Browser",
+              "es_ES": "Navegadores",
+              "pt_BR": "Navegadores",
+              "fr_FR": "Navigateurs",
+              "ru_RU": "Браузеры"
+            },
+            "hint": {
+              "en_US": "Select Facebook browsers; keywords are evenly assigned (extra browsers unused if fewer keywords)",
+              "zh_CN": "多选 Facebook 浏览器；关键词平均分配（关键词更少时多余浏览器不使用）",
+              "zh_TW": "多選 Facebook 瀏覽器；關鍵字平均分配（關鍵字較少時多餘瀏覽器不使用）",
+              "ja_JP": "Facebook ブラウザを複数選択。キーワードを均等割当（少ない場合は余剰ブラウザ未使用）",
+              "ko_KR": "Facebook 브라우저 다중 선택. 키워드 균등 배분(키워드가 적으면 남는 브라우저 미사용)",
+              "th_TH": "เลือกเบราว์เซอร์ Facebook หลายเครื่อง แจกคำค้นเท่าๆ กัน (ถ้าคำค้นน้อยกว่าจะไม่ใช้ตัวที่เหลือ)",
+              "id_ID": "Pilih browser Facebook; kata kunci dibagikan merata (browser ekstra tidak dipakai jika kata kunci lebih sedikit)",
+              "ms_MY": "Pilih pelayar Facebook; kata kunci diagih sama rata (pelayar ekstra tidak digunakan jika kata kunci kurang)",
+              "vi_VN": "Chọn nhiều trình duyệt Facebook; từ khóa phân đều (thừa trình duyệt sẽ không dùng nếu từ khóa ít hơn)",
+              "de_DE": "Facebook-Browser wählen; Keywords gleichmäßig zuweisen (überschüssige Browser ungenutzt bei weniger Keywords)",
+              "es_ES": "Seleccione navegadores de Facebook; las palabras clave se asignan de forma uniforme",
+              "pt_BR": "Selecione navegadores Facebook; palavras-chave são distribuídas igualmente",
+              "fr_FR": "Sélectionnez des navigateurs Facebook ; répartition égale des mots-clés",
+              "ru_RU": "Выберите браузеры Facebook; ключевые слова распределяются равномерно"
+            },
+            "single": false,
+            "platform": "facebook",
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Schedule",
+          "zh_CN": "频率规划控制",
+          "zh_TW": "頻率規劃控制",
+          "ja_JP": "スケジュール",
+          "ko_KR": "일정",
+          "th_TH": "กำหนดการ",
+          "id_ID": "Jadwal",
+          "ms_MY": "Jadual",
+          "vi_VN": "Lịch trình",
+          "de_DE": "Zeitplan",
+          "es_ES": "Programación",
+          "pt_BR": "Agendamento",
+          "fr_FR": "Planification",
+          "ru_RU": "Расписание"
+        },
+        "fields": [
+          {
+            "key": "daily_limit",
+            "type": "text",
+            "label": {
+              "en_US": "Daily limit",
+              "zh_CN": "每日上限",
+              "zh_TW": "每日上限",
+              "ja_JP": "1日の上限",
+              "ko_KR": "일일 한도",
+              "th_TH": "ขีดจำกัดรายวัน",
+              "id_ID": "Batas harian",
+              "ms_MY": "Had harian",
+              "vi_VN": "Giới hạn hàng ngày",
+              "de_DE": "Tageslimit",
+              "es_ES": "Límite diario",
+              "pt_BR": "Limite diário",
+              "fr_FR": "Limite quotidienne",
+              "ru_RU": "Дневной лимит"
+            },
+            "hint": {
+              "en_US": "Max tasks assigned to each device per day",
+              "zh_CN": "每个设备每天最多分配多少个任务",
+              "zh_TW": "每個裝置每天最多分配多少個任務",
+              "ja_JP": "各デバイスに1日あたり割り当てる最大タスク数",
+              "ko_KR": "기기당 하루 최대 할당 작업 수",
+              "th_TH": "จำนวนงานสูงสุดที่มอบหมายต่ออุปกรณ์ต่อวัน",
+              "id_ID": "Maks. tugas yang dialokasikan per perangkat per hari",
+              "ms_MY": "Maks tugas diperuntukkan kepada setiap peranti sehari",
+              "vi_VN": "Số nhiệm vụ tối đa gán cho mỗi thiết bị mỗi ngày",
+              "de_DE": "Max. Aufgaben pro Gerät und Tag",
+              "es_ES": "Máx. de tareas asignadas a cada dispositivo por día",
+              "pt_BR": "Máx. de tarefas atribuídas a cada dispositivo por dia",
+              "fr_FR": "Nombre max. de tâches par appareil et par jour",
+              "ru_RU": "Макс. число задач на устройство в день"
+            },
+            "inputType": "number",
+            "defaultValue": 10
+          },
+          {
+            "key": "during_min",
+            "type": "text",
+            "label": {
+              "en_US": "Min interval (s)",
+              "zh_CN": "最小间隔（s）",
+              "zh_TW": "最小間隔（s）",
+              "ja_JP": "最小間隔（秒）",
+              "ko_KR": "최소 간격(초)",
+              "th_TH": "ช่วงห่างขั้นต่ำ (วินาที)",
+              "id_ID": "Interval min (d)",
+              "ms_MY": "Selang min (s)",
+              "vi_VN": "Khoảng tối thiểu (giây)",
+              "de_DE": "Min. Abstand (s)",
+              "es_ES": "Intervalo mín. (s)",
+              "pt_BR": "Intervalo mín. (s)",
+              "fr_FR": "Intervalle min. (s)",
+              "ru_RU": "Мин. интервал (с)"
+            },
+            "hint": {
+              "en_US": "Min interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最小间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最小間隔（秒）",
+              "ja_JP": "同一デバイスでの実行間隔の最小値（秒）",
+              "ko_KR": "동일 기기 실행 간 최소 간격(초)",
+              "th_TH": "ช่วงห่างขั้นต่ำระหว่างการรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "id_ID": "Interval min antar jalan pada perangkat yang sama (detik)",
+              "ms_MY": "Selang min antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối thiểu giữa các lần chạy trên cùng thiết bị (giây)",
+              "de_DE": "Min. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo mín. entre ejecuciones en el mismo dispositivo (segundos)",
+              "pt_BR": "Intervalo mín. entre execuções no mesmo dispositivo (segundos)",
+              "fr_FR": "Intervalle min. entre exécutions sur le même appareil (secondes)",
+              "ru_RU": "Мин. интервал между запусками на одном устройстве (сек)"
+            },
+            "defaultValue": "1"
+          },
+          {
+            "key": "during_max",
+            "type": "text",
+            "label": {
+              "en_US": "Max interval (s)",
+              "zh_CN": "最大间隔（s）",
+              "zh_TW": "最大間隔（s）",
+              "ja_JP": "最大間隔（秒）",
+              "ko_KR": "최대 간격(초)",
+              "th_TH": "ช่วงห่างสูงสุด (วินาที)",
+              "id_ID": "Interval maks (d)",
+              "ms_MY": "Selang maks (s)",
+              "vi_VN": "Khoảng tối đa (giây)",
+              "de_DE": "Max. Abstand (s)",
+              "es_ES": "Intervalo máx. (s)",
+              "pt_BR": "Intervalo máx. (s)",
+              "fr_FR": "Intervalle max. (s)",
+              "ru_RU": "Макс. интервал (с)"
+            },
+            "hint": {
+              "en_US": "Max interval between runs on the same device (seconds)",
+              "zh_CN": "特定设备单日多次执行任务，每次执行之间的最大间隔（秒）",
+              "zh_TW": "特定裝置單日多次執行任務，每次執行之間的最大間隔（秒）",
+              "ja_JP": "同一デバイスでの実行間隔の最大値（秒）",
+              "ko_KR": "동일 기기 실행 간 최대 간격(초)",
+              "th_TH": "ช่วงห่างสูงสุดระหว่างการรันบนอุปกรณ์เดียวกัน (วินาที)",
+              "id_ID": "Interval maks antar jalan pada perangkat yang sama (detik)",
+              "ms_MY": "Selang maks antara larian pada peranti sama (saat)",
+              "vi_VN": "Khoảng tối đa giữa các lần chạy trên cùng thiết bị (giây)",
+              "de_DE": "Max. Abstand zwischen Läufen auf demselben Gerät (Sekunden)",
+              "es_ES": "Intervalo máx. entre ejecuciones en el mismo dispositivo (segundos)",
+              "pt_BR": "Intervalo máx. entre execuções no mesmo dispositivo (segundos)",
+              "fr_FR": "Intervalle max. entre exécutions sur le même appareil (secondes)",
+              "ru_RU": "Макс. интервал между запусками на одном устройстве (сек)"
+            },
+            "defaultValue": "2"
+          },
+          {
+            "key": "daily_time_start",
+            "type": "time",
+            "label": {
+              "en_US": "Daily start time",
+              "zh_CN": "每日执行开始时刻",
+              "zh_TW": "每日執行開始時刻",
+              "ja_JP": "毎日の開始時刻",
+              "ko_KR": "일일 시작 시각",
+              "th_TH": "เวลาเริ่มรายวัน",
+              "id_ID": "Waktu mulai harian",
+              "ms_MY": "Masa mula harian",
+              "vi_VN": "Giờ bắt đầu mỗi ngày",
+              "de_DE": "Täglicher Startzeitpunkt",
+              "es_ES": "Hora de inicio diaria",
+              "pt_BR": "Horário de início diário",
+              "fr_FR": "Heure de début quotidienne",
+              "ru_RU": "Ежедневное время начала"
+            },
+            "defaultValue": "09:00"
+          },
+          {
+            "key": "daily_time_end",
+            "type": "time",
+            "label": {
+              "en_US": "Daily end time",
+              "zh_CN": "每日执行结束时刻",
+              "zh_TW": "每日執行結束時刻",
+              "ja_JP": "毎日の終了時刻",
+              "ko_KR": "일일 종료 시각",
+              "th_TH": "เวลาสิ้นสุดรายวัน",
+              "id_ID": "Waktu selesai harian",
+              "ms_MY": "Masa tamat harian",
+              "vi_VN": "Giờ kết thúc mỗi ngày",
+              "de_DE": "Täglicher Endzeitpunkt",
+              "es_ES": "Hora de fin diaria",
+              "pt_BR": "Horário de término diário",
+              "fr_FR": "Heure de fin quotidienne",
+              "ru_RU": "Ежедневное время окончания"
+            },
+            "defaultValue": "18:00"
+          }
+        ]
+      }
+    ],
+    "taskRunConfig": [
+      {
+        "title": {
+          "en_US": "Ad Library search",
+          "zh_CN": "广告资料库搜索",
+          "zh_TW": "廣告資料庫搜尋",
+          "ja_JP": "広告ライブラリ検索",
+          "ko_KR": "광고 라이브러리 검색",
+          "th_TH": "ค้นหา Ad Library",
+          "id_ID": "Pencarian Ad Library",
+          "ms_MY": "Carian Ad Library",
+          "vi_VN": "Tìm kiếm Ad Library",
+          "de_DE": "Ad-Library-Suche",
+          "es_ES": "Búsqueda en Ad Library",
+          "pt_BR": "Busca na Ad Library",
+          "fr_FR": "Recherche Ad Library",
+          "ru_RU": "Поиск в Ad Library"
+        },
+        "fields": [
+          {
+            "key": "keyword",
+            "type": "text",
+            "label": {
+              "en_US": "Search keyword",
+              "zh_CN": "搜索关键词",
+              "zh_TW": "搜尋關鍵字",
+              "ja_JP": "検索キーワード",
+              "ko_KR": "검색 키워드",
+              "th_TH": "คำค้นหา",
+              "id_ID": "Kata kunci pencarian",
+              "ms_MY": "Kata kunci carian",
+              "vi_VN": "Từ khóa tìm kiếm",
+              "de_DE": "Suchbegriff",
+              "es_ES": "Palabra clave de búsqueda",
+              "pt_BR": "Palavra-chave de busca",
+              "fr_FR": "Mot-clé de recherche",
+              "ru_RU": "Ключевое слово поиска"
+            },
+            "hint": {
+              "en_US": "Keyword used in Meta Ad Library search",
+              "zh_CN": "在 Meta 广告资料库中搜索的关键词",
+              "zh_TW": "在 Meta 廣告資料庫中搜尋的關鍵字",
+              "ja_JP": "Meta 広告ライブラリで使うキーワード",
+              "ko_KR": "Meta 광고 라이브러리 검색에 사용할 키워드",
+              "th_TH": "คำค้นที่ใช้ใน Meta Ad Library",
+              "id_ID": "Kata kunci untuk pencarian Meta Ad Library",
+              "ms_MY": "Kata kunci untuk carian Meta Ad Library",
+              "vi_VN": "Từ khóa dùng trong tìm kiếm Meta Ad Library",
+              "de_DE": "Suchbegriff für die Meta Ad Library",
+              "es_ES": "Palabra clave para buscar en Meta Ad Library",
+              "pt_BR": "Palavra-chave para buscar na Meta Ad Library",
+              "fr_FR": "Mot-clé pour la recherche Meta Ad Library",
+              "ru_RU": "Ключевое слово для поиска в Meta Ad Library"
+            },
+            "defaultValue": ""
+          },
+          {
+            "key": "country",
+            "type": "text",
+            "label": {
+              "en_US": "Country code",
+              "zh_CN": "国家代码",
+              "zh_TW": "國家代碼",
+              "ja_JP": "国コード",
+              "ko_KR": "국가 코드",
+              "th_TH": "รหัสประเทศ",
+              "id_ID": "Kode negara",
+              "ms_MY": "Kod negara",
+              "vi_VN": "Mã quốc gia",
+              "de_DE": "Ländercode",
+              "es_ES": "Código de país",
+              "pt_BR": "Código do país",
+              "fr_FR": "Code pays",
+              "ru_RU": "Код страны"
+            },
+            "hint": {
+              "en_US": "ISO country code, e.g. CN / US / JP (default CN)",
+              "zh_CN": "国家代码，如 CN / US / JP（默认 CN）",
+              "zh_TW": "國家代碼，如 CN / US / JP（預設 CN）",
+              "ja_JP": "国コード（例：CN / US / JP、既定 CN）",
+              "ko_KR": "국가 코드 예: CN / US / JP (기본 CN)",
+              "th_TH": "รหัสประเทศ เช่น CN / US / JP (ค่าเริ่ม CN)",
+              "id_ID": "Kode negara, mis. CN / US / JP (default CN)",
+              "ms_MY": "Kod negara, cth. CN / US / JP (lalai CN)",
+              "vi_VN": "Mã quốc gia, ví dụ CN / US / JP (mặc định CN)",
+              "de_DE": "Ländercode, z. B. CN / US / JP (Standard CN)",
+              "es_ES": "Código de país, p. ej. CN / US / JP (predeterminado CN)",
+              "pt_BR": "Código do país, ex.: CN / US / JP (padrão CN)",
+              "fr_FR": "Code pays, ex. CN / US / JP (défaut CN)",
+              "ru_RU": "Код страны, напр. CN / US / JP (по умолчанию CN)"
+            },
+            "defaultValue": "CN"
+          },
+          {
+            "key": "max_count",
+            "type": "text",
+            "label": {
+              "en_US": "Max pages to collect",
+              "zh_CN": "最多采集条数",
+              "zh_TW": "最多採集條數",
+              "ja_JP": "最大収集数",
+              "ko_KR": "최대 수집 수",
+              "th_TH": "จำนวนสูงสุดที่เก็บ",
+              "id_ID": "Jumlah maks dikumpulkan",
+              "ms_MY": "Bilangan maks dikumpul",
+              "vi_VN": "Số lượng tối đa thu thập",
+              "de_DE": "Max. zu erfassende Seiten",
+              "es_ES": "Máx. de páginas a recopilar",
+              "pt_BR": "Máx. de páginas a coletar",
+              "fr_FR": "Nombre max. de pages à collecter",
+              "ru_RU": "Макс. число страниц для сбора"
+            },
+            "hint": {
+              "en_US": "Stop after this many unique public Page URLs (default 50)",
+              "zh_CN": "达到该数量的不重复公共主页链接后停止（默认 50）",
+              "zh_TW": "達此數量的不重複公共主頁網址後停止（預設 50）",
+              "ja_JP": "重複なし公開ページ URL がこの件数で停止（既定50）",
+              "ko_KR": "고유 공개 페이지 URL이 이 수에 도달하면 중단(기본 50)",
+              "th_TH": "หยุดเมื่อครบจำนวน URL เพจสาธารณะที่ไม่ซ้ำ (ค่าเริ่ม 50)",
+              "id_ID": "Berhenti setelah sejumlah URL Halaman publik unik (default 50)",
+              "ms_MY": "Berhenti selepas bilangan URL Halaman awam unik (lalai 50)",
+              "vi_VN": "Dừng sau số URL trang công khai duy nhất này (mặc định 50)",
+              "de_DE": "Stopp nach dieser Anzahl einzigartiger öffentlicher Seiten-URLs (Standard 50)",
+              "es_ES": "Detener tras esta cantidad de URLs de páginas públicas únicas (predeterminado 50)",
+              "pt_BR": "Parar após esta quantidade de URLs de Páginas públicas únicas (padrão 50)",
+              "fr_FR": "Arrêter après ce nombre d’URL de Pages publiques uniques (défaut 50)",
+              "ru_RU": "Остановиться после этого числа уникальных URL публичных страниц (по умолчанию 50)"
+            },
+            "inputType": "number",
+            "defaultValue": 50
+          }
+        ]
+      }
+    ],
+    "taskResultConfig": [
+      {
+        "title": {
+          "en_US": "Run result",
+          "zh_CN": "执行结果",
+          "zh_TW": "執行結果",
+          "ja_JP": "実行結果",
+          "ko_KR": "실행 결과",
+          "th_TH": "ผลการรัน",
+          "id_ID": "Hasil eksekusi",
+          "ms_MY": "Hasil larian",
+          "vi_VN": "Kết quả chạy",
+          "de_DE": "Ausführungsergebnis",
+          "es_ES": "Resultado de ejecución",
+          "pt_BR": "Resultado da execução",
+          "fr_FR": "Résultat d'exécution",
+          "ru_RU": "Результат выполнения"
+        },
+        "fields": [
+          {
+            "key": "keyword",
+            "type": "text",
+            "label": {
+              "en_US": "Search keyword",
+              "zh_CN": "搜索关键词",
+              "zh_TW": "搜尋關鍵字",
+              "ja_JP": "検索キーワード",
+              "ko_KR": "검색 키워드",
+              "th_TH": "คำค้นหา",
+              "id_ID": "Kata kunci pencarian",
+              "ms_MY": "Kata kunci carian",
+              "vi_VN": "Từ khóa tìm kiếm",
+              "de_DE": "Suchbegriff",
+              "es_ES": "Palabra clave de búsqueda",
+              "pt_BR": "Palavra-chave de busca",
+              "fr_FR": "Mot-clé de recherche",
+              "ru_RU": "Ключевое слово поиска"
+            }
+          },
+          {
+            "key": "country",
+            "type": "text",
+            "label": {
+              "en_US": "Country code",
+              "zh_CN": "国家代码",
+              "zh_TW": "國家代碼",
+              "ja_JP": "国コード",
+              "ko_KR": "국가 코드",
+              "th_TH": "รหัสประเทศ",
+              "id_ID": "Kode negara",
+              "ms_MY": "Kod negara",
+              "vi_VN": "Mã quốc gia",
+              "de_DE": "Ländercode",
+              "es_ES": "Código de país",
+              "pt_BR": "Código do país",
+              "fr_FR": "Code pays",
+              "ru_RU": "Код страны"
+            }
+          },
+          {
+            "key": "collected_count",
+            "type": "stat",
+            "label": {
+              "en_US": "Pages collected",
+              "zh_CN": "采集主页数",
+              "zh_TW": "採集主頁數",
+              "ja_JP": "収集ページ数",
+              "ko_KR": "수집한 페이지 수",
+              "th_TH": "จำนวนเพจที่เก็บ",
+              "id_ID": "Halaman dikumpulkan",
+              "ms_MY": "Halaman dikumpul",
+              "vi_VN": "Số trang đã thu thập",
+              "de_DE": "Gesammelte Seiten",
+              "es_ES": "Páginas recopiladas",
+              "pt_BR": "Páginas coletadas",
+              "fr_FR": "Pages collectées",
+              "ru_RU": "Собрано страниц"
+            }
+          },
+          {
+            "key": "final_url",
+            "type": "text",
+            "label": {
+              "en_US": "Final URL",
+              "zh_CN": "最终 URL",
+              "zh_TW": "最終 URL",
+              "ja_JP": "最終 URL",
+              "ko_KR": "최종 URL",
+              "th_TH": "URL สุดท้าย",
+              "id_ID": "URL akhir",
+              "ms_MY": "URL akhir",
+              "vi_VN": "URL cuối",
+              "de_DE": "Endgültige URL",
+              "es_ES": "URL final",
+              "pt_BR": "URL final",
+              "fr_FR": "URL finale",
+              "ru_RU": "Итоговый URL"
+            }
+          }
+        ]
+      }
+    ],
+    "intermediateDataSchema": {
+      "fields": [
+        {
+          "key": "keyword",
+          "type": "text",
+          "label": {
+            "en_US": "Search keyword",
+            "zh_CN": "搜索关键词",
+            "zh_TW": "搜尋關鍵字",
+            "ja_JP": "検索キーワード",
+            "ko_KR": "검색 키워드",
+            "th_TH": "คำค้นหา",
+            "id_ID": "Kata kunci pencarian",
+            "ms_MY": "Kata kunci carian",
+            "vi_VN": "Từ khóa tìm kiếm",
+            "de_DE": "Suchbegriff",
+            "es_ES": "Palabra clave de búsqueda",
+            "pt_BR": "Palavra-chave de busca",
+            "fr_FR": "Mot-clé de recherche",
+            "ru_RU": "Ключевое слово поиска"
+          }
+        },
+        {
+          "key": "country",
+          "type": "text",
+          "label": {
+            "en_US": "Country code",
+            "zh_CN": "国家代码",
+            "zh_TW": "國家代碼",
+            "ja_JP": "国コード",
+            "ko_KR": "국가 코드",
+            "th_TH": "รหัสประเทศ",
+            "id_ID": "Kode negara",
+            "ms_MY": "Kod negara",
+            "vi_VN": "Mã quốc gia",
+            "de_DE": "Ländercode",
+            "es_ES": "Código de país",
+            "pt_BR": "Código do país",
+            "fr_FR": "Code pays",
+            "ru_RU": "Код страны"
+          }
+        },
+        {
+          "key": "page_name",
+          "type": "text",
+          "label": {
+            "en_US": "Page name",
+            "zh_CN": "主页名称",
+            "zh_TW": "主頁名稱",
+            "ja_JP": "ページ名",
+            "ko_KR": "페이지 이름",
+            "th_TH": "ชื่อเพจ",
+            "id_ID": "Nama halaman",
+            "ms_MY": "Nama halaman",
+            "vi_VN": "Tên trang",
+            "de_DE": "Seitenname",
+            "es_ES": "Nombre de la página",
+            "pt_BR": "Nome da página",
+            "fr_FR": "Nom de la page",
+            "ru_RU": "Название страницы"
+          }
+        },
+        {
+          "key": "page_url",
+          "type": "text",
+          "label": {
+            "en_US": "Public Page URL",
+            "zh_CN": "公共主页链接",
+            "zh_TW": "公共主頁網址",
+            "ja_JP": "公開ページ URL",
+            "ko_KR": "공개 페이지 URL",
+            "th_TH": "URL เพจสาธารณะ",
+            "id_ID": "URL Halaman publik",
+            "ms_MY": "URL Halaman awam",
+            "vi_VN": "URL trang công khai",
+            "de_DE": "Öffentliche Seiten-URL",
+            "es_ES": "URL de la página pública",
+            "pt_BR": "URL da Página pública",
+            "fr_FR": "URL de la Page publique",
+            "ru_RU": "URL публичной страницы"
+          }
+        }
+      ]
+    },
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,691 @@
+{
+  "name": "fb-ad-pulicpage-mentions",
+  "version": "1.0.20",
+  "private": true,
+  "type": "module",
+  "displayName": {
+    "en_US": "FB check + collect Pages + comment/mention",
+    "de_DE": "Fb prüfen + Seiten + Kommentar/Erwähnung",
+    "es_ES": "Fb revisar + Páginas + comentario/mención",
+    "fr_FR": "Fb vérif + Pages + commentaire/mention",
+    "id_ID": "Fb cek + kumpul Halaman + komentar/mention",
+    "ja_JP": "Fb点検+ページ収集+コメント/メンション",
+    "ko_KR": "Fb점검+페이지수집+댓글/멘션",
+    "ms_MY": "Fb semak + kumpul Halaman + komen/sebutan",
+    "pt_BR": "Fb checar + Páginas + comentário/menção",
+    "ru_RU": "Fb проверка + страницы + комментарий/упоминание",
+    "th_TH": "Fb ตรวจ+เก็บเพจ+คอมเมนต์/กล่าวถึง",
+    "vi_VN": "Fb kiểm tra + thu trang + bình luận/đề cập",
+    "zh_CN": "Fb巡检+采主页+评论提及",
+    "zh_TW": "Fb巡檢+採主頁+評論提及"
+  },
+  "description": {
+    "en_US": "Per account: check → optional keyword Pages + Ad Library Pages (shared random keywords) → optional comment/mention. Invalid accounts tagged and skipped. Day 1 now; day 2+ planStartAt. Network/proxy soft-skip.",
+    "de_DE": "Pro Konto: prüfen → optional Keyword-Seiten + Ad Library (gemeinsame Zufalls-Keywords) → optional Kommentar/Erwähnung. Ungültige markieren. Tag1 sofort; Tag2+ planStartAt.",
+    "es_ES": "Por cuenta: revisar → Páginas por palabra clave opc. + Ad Library (palabras aleatorias compartidas) → comentario/mención opc. Inválidas etiquetadas. Día1 ya; día2+ planStartAt.",
+    "fr_FR": "Par compte : vérif → Pages mots-clés opt. + Ad Library (mots aléatoires partagés) → commentaire/mention opt. Invalides étiquetés. Jour1 immédiat ; jour2+ planStartAt.",
+    "id_ID": "Per akun: cek → opsional Halaman kata kunci + Ad Library (kata acak bersama) → opsional komentar/mention. Invalid dilabel. Hari1 sekarang; hari2+ planStartAt.",
+    "ja_JP": "アカウントごと：点検→任意キーワード収集+広告ライブラリ（共通語をランダム）→任意コメント/メンション。無効はタグ付けスキップ。1日目即時、2日目以降planStartAt。",
+    "ko_KR": "계정별: 점검→선택 키워드 수집+광고 라이브러리(공용 키워드 랜덤)→선택 댓글/멘션. 무효 계정 태그 후 건너뜀. 1일 즉시, 2일+ planStartAt.",
+    "ms_MY": "Setiap akaun: semak → pilihan Halaman kata kunci + Ad Library (kata rawak dikongsi) → pilihan komen/sebutan. Tidak sah dilabel. Hari1 sekarang; hari2+ planStartAt.",
+    "pt_BR": "Por conta: checar → Páginas por palavra-chave opc. + Ad Library (palavras aleatórias) → comentário/menção opc. Inválidas marcadas. Dia1 agora; dia2+ planStartAt.",
+    "ru_RU": "По аккаунту: проверка → опц. страницы по ключам + Ad Library (общие случайные ключи) → опц. комментарий/упоминание. Недействительные метятся. День1 сразу; день2+ planStartAt.",
+    "th_TH": "รายบัญชี: ตรวจ → เก็บเพจจากคำค้น(เลือกได้)+Ad Library (สุ่มคำร่วม) → คอมเมนต์/กล่าวถึง(เลือกได้) บัญชีหมดอายุติดป้าย วัน1ทันที วัน2+ planStartAt",
+    "vi_VN": "Theo tài khoản: kiểm tra → thu trang theo từ khóa tùy chọn + Ad Library (từ khóa dùng chung ngẫu nhiên) → bình luận/đề cập tùy chọn. Tài khoản hết hiệu lực gắn nhãn. Ngày1 ngay; ngày2+ planStartAt.",
+    "zh_CN": "按账号：巡检 → 可选关键词采主页 + 广告资料库采主页（共用关键词并随机抽取）→ 可选评论/提及。失效账号打标跳过。第1天立即；第2天起 planStartAt。网络/代理软跳过。",
+    "zh_TW": "按帳號：巡檢 → 可選關鍵字採主頁 + 廣告資料庫採主頁（共用關鍵字並隨機抽取）→ 可選評論/提及。失效帳號打標跳過。第1天立即；第2天起 planStartAt。網路/代理軟跳過。"
+  },
+  "main": "./main.ts",
+  "dependencies": {
+    "xport-workflow-sdk": "file:../xport_workflow_sdk"
+  },
+  "engines": {
+    "bun": ">=1.4.0"
+  },
+  "devDependencies": {
+    "bun-types": "^1.4.2"
+  },
+  "xportWorkflow": {
+    "workflowRunConfig": [
+      {
+        "title": {
+          "en_US": "Search and schedule",
+          "de_DE": "Suche und Zeitplan",
+          "es_ES": "Búsqueda y calendario",
+          "fr_FR": "Recherche et planning",
+          "id_ID": "Pencarian dan jadwal",
+          "ja_JP": "検索と日程",
+          "ko_KR": "검색과 일정",
+          "ms_MY": "Carian dan jadual",
+          "pt_BR": "Busca e agenda",
+          "ru_RU": "Поиск и расписание",
+          "th_TH": "ค้นหาและตาราง",
+          "vi_VN": "Tìm kiếm và lịch",
+          "zh_CN": "搜索与天数",
+          "zh_TW": "搜尋與天數"
+        },
+        "fields": [
+          {
+            "key": "keywords",
+            "type": "text",
+            "label": {
+              "en_US": "Search keywords",
+              "de_DE": "Suchbegriffe",
+              "es_ES": "Palabras clave",
+              "fr_FR": "Mots-clés",
+              "id_ID": "Kata kunci",
+              "ja_JP": "検索キーワード",
+              "ko_KR": "검색 키워드",
+              "ms_MY": "Kata kunci carian",
+              "pt_BR": "Palavras-chave",
+              "ru_RU": "Ключевые слова",
+              "th_TH": "คำค้นหา",
+              "vi_VN": "Từ khóa tìm kiếm",
+              "zh_CN": "搜索关键词",
+              "zh_TW": "搜尋關鍵字"
+            },
+            "hint": {
+              "en_US": "One per line or / separated. Shared by keyword Pages and Ad Library. Each collect picks a keyword at random; empty results try another until the daily count is filled.",
+              "de_DE": "Ein Begriff pro Zeile oder /. Gemeinsam für Keyword-Seiten und Ad Library. Zufällig; leere Ergebnisse → nächstes Wort.",
+              "es_ES": "Uno por línea o /. Compartido por Páginas por palabra clave y Ad Library. Aleatorio; vacío → siguiente.",
+              "fr_FR": "Un par ligne ou /. Partagé Pages mots-clés et Ad Library. Aléatoire ; vide → suivant.",
+              "id_ID": "Satu per baris atau /. Dibagi Halaman kata kunci dan Ad Library. Acak; kosong → kata berikutnya.",
+              "ja_JP": "1行1語または / 区切り。キーワード収集と広告ライブラリで共用。毎回ランダムに選び、空なら次語へ。",
+              "ko_KR": "한 줄 또는 / 구분. 키워드 수집과 광고 라이브러리 공용. 매번 랜덤 선택, 비면 다음 키워드.",
+              "ms_MY": "Satu setiap baris atau /. Dikongsi Halaman kata kunci dan Ad Library. Rawak; kosong → kata seterusnya.",
+              "pt_BR": "Um por linha ou /. Compartilhado Páginas por palavra-chave e Ad Library. Aleatório; vazio → próxima.",
+              "ru_RU": "По одному в строке или /. Общие для страниц по ключу и Ad Library. Случайно; пусто → следующее.",
+              "th_TH": "หนึ่งคำต่อบรรทัดหรือคั่นด้วย / ใช้ร่วมเก็บเพจจากคำค้นและ Ad Library สุ่มคำ ว่างแล้วลองคำถัดไป",
+              "vi_VN": "Mỗi dòng một từ hoặc /. Dùng chung thu trang từ khóa và Ad Library. Ngẫu nhiên; trống thì từ tiếp theo.",
+              "zh_CN": "每行一个，也可用 / 分隔。关键词采主页与广告资料库共用。每次采集随机抽词；无结果则换词，直到凑满当天数量。",
+              "zh_TW": "每行一個，也可用 / 分隔。關鍵字採主頁與廣告資料庫共用。每次採集隨機抽詞；無結果則換詞，直到湊滿當天數量。"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "country",
+            "type": "text",
+            "label": {
+              "en_US": "Country / region",
+              "de_DE": "Land / Region",
+              "es_ES": "País / región",
+              "fr_FR": "Pays / région",
+              "id_ID": "Negara / wilayah",
+              "ja_JP": "国 / 地域",
+              "ko_KR": "국가 / 지역",
+              "ms_MY": "Negara / wilayah",
+              "pt_BR": "País / região",
+              "ru_RU": "Страна / регион",
+              "th_TH": "ประเทศ / ภูมิภาค",
+              "vi_VN": "Quốc gia / khu vực",
+              "zh_CN": "地区",
+              "zh_TW": "地區"
+            },
+            "hint": {
+              "en_US": "ISO code such as CN / US, or a name like China. Used by Ad Library collect. Shared by all days.",
+              "de_DE": "ISO wie CN / US oder Name wie China. Für Ad Library. Alle Tage.",
+              "es_ES": "Código ISO CN / US o nombre como China. Para Ad Library. Todos los días.",
+              "fr_FR": "Code ISO CN / US ou nom Chine. Pour Ad Library. Tous les jours.",
+              "id_ID": "Kode ISO CN / US atau nama China. Untuk Ad Library. Semua hari.",
+              "ja_JP": "CN / US など ISO、または「中国」。広告ライブラリ用。全日共通。",
+              "ko_KR": "CN / US 같은 ISO 또는 중국 등 이름. 광고 라이브러리용. 모든 날 공통.",
+              "ms_MY": "Kod ISO CN / US atau nama China. Untuk Ad Library. Semua hari.",
+              "pt_BR": "Código ISO CN / US ou nome China. Para Ad Library. Todos os dias.",
+              "ru_RU": "Код ISO CN / US или название. Для Ad Library. Все дни.",
+              "th_TH": "รหัส ISO เช่น CN / US หรือชื่อ China สำหรับ Ad Library ใช้ร่วมทุกวัน",
+              "vi_VN": "Mã ISO CN / US hoặc tên China. Cho Ad Library. Mọi ngày.",
+              "zh_CN": "国家代码如 CN / US，也可填中国等名称。广告资料库采集用。所有天数共用。",
+              "zh_TW": "國家代碼如 CN / US，也可填中國等名稱。廣告資料庫採集用。所有天數共用。"
+            },
+            "defaultValue": "CN"
+          },
+          {
+            "key": "enable_keyword_collect",
+            "type": "switch",
+            "label": {
+              "en_US": "Collect Pages by keyword search",
+              "de_DE": "Seiten per Keyword sammeln",
+              "es_ES": "Recoger Páginas por palabra clave",
+              "fr_FR": "Collecter Pages par mot-clé",
+              "id_ID": "Kumpul Halaman via kata kunci",
+              "ja_JP": "キーワードで公開ページ収集",
+              "ko_KR": "키워드로 공개 페이지 수집",
+              "ms_MY": "Kumpul Halaman via kata kunci",
+              "pt_BR": "Coletar Páginas por palavra-chave",
+              "ru_RU": "Сбор страниц по ключевому слову",
+              "th_TH": "เก็บเพจจากคำค้น",
+              "vi_VN": "Thu trang theo từ khóa",
+              "zh_CN": "关键词采集公共主页",
+              "zh_TW": "關鍵字採集公共主頁"
+            },
+            "hint": {
+              "en_US": "Optional. Off by default. Uses the same keyword list at random via Facebook page search.",
+              "de_DE": "Optional. Standard aus. Gleiche Keywords zufällig per Facebook-Seitensuche.",
+              "es_ES": "Opcional. Desactivado por defecto. Misma lista al azar vía búsqueda de Páginas.",
+              "fr_FR": "Optionnel. Désactivé par défaut. Même liste au hasard via recherche Pages.",
+              "id_ID": "Opsional. Default mati. Daftar kata yang sama acak lewat pencarian Halaman.",
+              "ja_JP": "任意。既定オフ。同じ語リストをランダムに Facebook ページ検索。",
+              "ko_KR": "선택. 기본 꺼짐. 같은 키워드 목록을 랜덤으로 Facebook 페이지 검색.",
+              "ms_MY": "Pilihan. Lalai mati. Senarai kata sama rawak melalui carian Halaman.",
+              "pt_BR": "Opcional. Desligado por padrão. Mesma lista aleatória via busca de Páginas.",
+              "ru_RU": "Необязательно. По умолчанию выкл. Тот же список случайно через поиск Страниц.",
+              "th_TH": "ไม่บังคับ ปิดเป็นค่าเริ่ม ใช้รายการคำเดียวกันแบบสุ่มผ่านค้นหาเพจ",
+              "vi_VN": "Tùy chọn. Mặc định tắt. Cùng danh sách từ khóa ngẫu nhiên qua tìm Trang.",
+              "zh_CN": "可选，默认关闭。用同一关键词列表随机抽取，走 Facebook 搜公共主页。",
+              "zh_TW": "可選，預設關閉。用同一關鍵字列表隨機抽取，走 Facebook 搜公共主頁。"
+            },
+            "defaultValue": 0
+          },
+          {
+            "key": "enable_ad_collect",
+            "type": "switch",
+            "label": {
+              "en_US": "Collect Pages from Ad Library",
+              "de_DE": "Seiten aus Ad Library sammeln",
+              "es_ES": "Recoger Páginas de Ad Library",
+              "fr_FR": "Collecter Pages depuis Ad Library",
+              "id_ID": "Kumpul Halaman dari Ad Library",
+              "ja_JP": "広告ライブラリからページ収集",
+              "ko_KR": "광고 라이브러리에서 페이지 수집",
+              "ms_MY": "Kumpul Halaman dari Ad Library",
+              "pt_BR": "Coletar Páginas da Ad Library",
+              "ru_RU": "Сбор страниц из Ad Library",
+              "th_TH": "เก็บเพจจาก Ad Library",
+              "vi_VN": "Thu trang từ Ad Library",
+              "zh_CN": "广告资料库采集公共主页",
+              "zh_TW": "廣告資料庫採集公共主頁"
+            },
+            "hint": {
+              "en_US": "On by default. Uses the same keyword list at random with the country above.",
+              "de_DE": "Standard an. Gleiche Keywords zufällig mit Land oben.",
+              "es_ES": "Activado por defecto. Misma lista al azar con el país de arriba.",
+              "fr_FR": "Activé par défaut. Même liste au hasard avec le pays ci-dessus.",
+              "id_ID": "Default nyala. Daftar kata sama acak dengan negara di atas.",
+              "ja_JP": "既定オン。同じ語をランダムに、上記の国コード付き。",
+              "ko_KR": "기본 켜짐. 같은 키워드를 랜덤으로, 위 국가 코드와 함께.",
+              "ms_MY": "Lalai hidup. Senarai kata sama rawak dengan negara di atas.",
+              "pt_BR": "Ligado por padrão. Mesma lista aleatória com o país acima.",
+              "ru_RU": "По умолчанию вкл. Тот же список случайно со страной выше.",
+              "th_TH": "เปิดเป็นค่าเริ่ม ใช้รายการคำเดียวกันแบบสุ่มพร้อมประเทศด้านบน",
+              "vi_VN": "Mặc định bật. Cùng danh sách từ khóa ngẫu nhiên kèm quốc gia phía trên.",
+              "zh_CN": "默认开启。用同一关键词列表随机抽取，并带上上方地区。",
+              "zh_TW": "預設開啟。用同一關鍵字列表隨機抽取，並帶上上方地區。"
+            },
+            "defaultValue": 1
+          },
+          {
+            "key": "page_count",
+            "type": "text",
+            "label": {
+              "en_US": "Pages per browser per day",
+              "de_DE": "Seiten pro Browser und Tag",
+              "es_ES": "Páginas por navegador y día",
+              "fr_FR": "Pages par navigateur et par jour",
+              "id_ID": "Halaman per browser per hari",
+              "ja_JP": "ブラウザあたり1日のページ数",
+              "ko_KR": "브라우저당 하루 페이지 수",
+              "ms_MY": "Halaman setiap pelayar setiap hari",
+              "pt_BR": "Páginas por navegador por dia",
+              "ru_RU": "Страниц на браузер в день",
+              "th_TH": "จำนวนเพจต่อเบราว์เซอร์ต่อวัน",
+              "vi_VN": "Số trang mỗi trình duyệt mỗi ngày",
+              "zh_CN": "每个浏览器每天发送主页数",
+              "zh_TW": "每個瀏覽器每天發送主頁數"
+            },
+            "hint": {
+              "en_US": "How many public Pages each browser engages each day. Empty keywords are skipped until this count is filled.",
+              "de_DE": "Wie viele öffentliche Seiten pro Browser und Tag. Leere Begriffe überspringen bis diese Zahl.",
+              "es_ES": "Cuántas Páginas públicas por navegador y día. Palabras vacías se omiten hasta este número.",
+              "fr_FR": "Nombre de Pages publiques par navigateur et jour. Mots vides ignorés jusqu’à ce nombre.",
+              "id_ID": "Berapa Halaman publik per browser per hari. Kata kosong dilewati sampai angka ini.",
+              "ja_JP": "各ブラウザが1日に処理する公開ページ数。空の語は飛ばしてこの数まで。",
+              "ko_KR": "브라우저가 하루 처리할 공개 페이지 수. 빈 키워드는 건너뛰고 이 수까지.",
+              "ms_MY": "Berapa Halaman awam setiap pelayar sehari. Kata kosong dilangkau sehingga bilangan ini.",
+              "pt_BR": "Quantas Páginas públicas por navegador por dia. Palavras vazias puladas até este número.",
+              "ru_RU": "Сколько публичных страниц на браузер в день. Пустые слова пропускаются до этого числа.",
+              "th_TH": "จำนวนเพจสาธารณะต่อเบราว์เซอร์ต่อวัน ข้ามคำว่างจนครบจำนวนนี้",
+              "vi_VN": "Số Trang công khai mỗi trình duyệt mỗi ngày. Từ trống bỏ qua đến đủ số này.",
+              "zh_CN": "每个浏览器每天处理多少个公共主页。词无结果则换词，直到凑满此数。",
+              "zh_TW": "每個瀏覽器每天處理多少個公共主頁。詞無結果則換詞，直到湊滿此數。"
+            },
+            "inputType": "number",
+            "defaultValue": "3"
+          },
+          {
+            "key": "days",
+            "type": "text",
+            "inputType": "number",
+            "label": {
+              "en_US": "Consecutive days",
+              "de_DE": "Aufeinanderfolgende Tage",
+              "es_ES": "Días consecutivos",
+              "fr_FR": "Jours consécutifs",
+              "id_ID": "Hari berurutan",
+              "ja_JP": "連続日数",
+              "ko_KR": "연속 일수",
+              "ms_MY": "Hari berturut-turut",
+              "pt_BR": "Dias consecutivos",
+              "ru_RU": "Подряд дней",
+              "th_TH": "จำนวนวันติดต่อกัน",
+              "vi_VN": "Số ngày liên tiếp",
+              "zh_CN": "连续发送天数",
+              "zh_TW": "連續發送天數"
+            },
+            "hint": {
+              "en_US": "Day 1 Mentions queue now; day 2+ check/Mentions use planStartAt (+1 calendar day each). Hard check fail cancels that day's Mentions; network/proxy soft-skips as success. Total ≈ days × pages × browsers.",
+              "de_DE": "Tag 1 sofort; ab Tag 2 planStartAt (+1 Kalendertag). Harte Prüfung stoppt Mentions; Netz/Proxy Soft-Skip Erfolg. Gesamt ≈ Tage × Seiten × Browser.",
+              "es_ES": "Día 1 ya; días 2+ planStartAt (+1 día). Fallo duro cancela menciones; red/proxy soft-skip éxito. Total ≈ días × páginas × navegadores.",
+              "fr_FR": "Jour 1 immédiat ; jour 2+ planStartAt (+1 jour). Échec dur annule mentions ; réseau/proxy soft-skip succès. Total ≈ jours × pages × navigateurs.",
+              "id_ID": "Hari 1 sekarang; hari 2+ planStartAt (+1 hari). Cek gagal keras batalkan mention; jaringan/proxy soft-skip sukses. Total ≈ hari × halaman × browser.",
+              "ja_JP": "1日目即時、2日目以降planStartAt（+1暦日）。硬点検失敗でメンション取消、ネット/プロキシはソフトスキップ成功。合計≈日数×ページ×ブラウザ。",
+              "ko_KR": "1일차 즉시, 2일+ planStartAt(+1일). 경성 점검 실패 시 멘션 취소, 네트워크/프록시는 소프트스킵 성공. 총량≈일수×페이지×브라우저.",
+              "ms_MY": "Hari 1 sekarang; hari 2+ planStartAt (+1 hari). Semak gagal keras batalkan sebutan; rangkaian/proksi soft-skip berjaya. Jumlah ≈ hari × halaman × pelayar.",
+              "pt_BR": "Dia 1 agora; dias 2+ planStartAt (+1 dia). Falha dura cancela menções; rede/proxy soft-skip sucesso. Total ≈ dias × páginas × navegadores.",
+              "ru_RU": "День 1 сразу; со 2-го planStartAt (+1 день). Жёсткий сбой отменяет упоминания; сеть/прокси soft-skip успех. Итого ≈ дни × страницы × браузеры.",
+              "th_TH": "วัน 1 ทันที วัน 2+ planStartAt (+1 วัน) ตรวจล้มเหลวหนักยกเลิกกล่าวถึง เครือข่าย/พร็อกซี soft-skip สำเร็จ รวม ≈ วัน × เพจ × เบราว์เซอร์",
+              "vi_VN": "Ngày 1 ngay; ngày 2+ planStartAt (+1 ngày). Kiểm tra lỗi cứng hủy đề cập; mạng/proxy soft-skip thành công. Tổng ≈ ngày × trang × trình duyệt.",
+              "zh_CN": "第 1 天提及立即入队；第 2 天起巡检/提及按 planStartAt 隔天排期（每多一天 +86400 秒）。硬性巡检失败取消该天提及；无网络/代理异常软跳过并记成功。任务总数 ≈ 天数 × 每天主页数 × 浏览器数。",
+              "zh_TW": "第 1 天提及立即入隊；第 2 天起巡檢/提及依 planStartAt 隔天排期（每多一天 +86400 秒）。硬性巡檢失敗取消該天提及；無網路/代理異常軟跳過並記成功。任務總數 ≈ 天數 × 每天主頁數 × 瀏覽器數。"
+            },
+            "defaultValue": 3
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Comment & mention",
+          "de_DE": "Kommentar & Erwähnung",
+          "es_ES": "Comentario y mención",
+          "fr_FR": "Commentaire et mention",
+          "id_ID": "Komentar & mention",
+          "ja_JP": "コメントとメンション",
+          "ko_KR": "댓글과 멘션",
+          "ms_MY": "Komen & sebutan",
+          "pt_BR": "Comentário e menção",
+          "ru_RU": "Комментарий и упоминание",
+          "th_TH": "คอมเมนต์และกล่าวถึง",
+          "vi_VN": "Bình luận và đề cập",
+          "zh_CN": "评论与提及",
+          "zh_TW": "評論與提及"
+        },
+        "fields": [
+          {
+            "key": "comment_texts",
+            "type": "text",
+            "label": {
+              "en_US": "Comment texts",
+              "de_DE": "Kommentartexte",
+              "es_ES": "Textos de comentario",
+              "fr_FR": "Textes de commentaire",
+              "id_ID": "Teks komentar",
+              "ja_JP": "コメント文",
+              "ko_KR": "댓글 문구",
+              "ms_MY": "Teks komen",
+              "pt_BR": "Textos de comentário",
+              "ru_RU": "Тексты комментариев",
+              "th_TH": "ข้อความคอมเมนต์",
+              "vi_VN": "Nội dung bình luận",
+              "zh_CN": "评论文案",
+              "zh_TW": "評論文案"
+            },
+            "hint": {
+              "en_US": "Optional. One comment per line. Empty = skip comments. Each Page gets one, cycled with Comment images.",
+              "de_DE": "Optional. Ein Kommentar pro Zeile. Leer = keine Kommentare. Pro Seite einer, mit Bildern im Zyklus.",
+              "es_ES": "Opcional. Un comentario por línea. Vacío = omitir. Uno por Página, con imágenes en ciclo.",
+              "fr_FR": "Optionnel. Un commentaire par ligne. Vide = ignorer. Un par Page, avec images en cycle.",
+              "id_ID": "Opsional. Satu komentar per baris. Kosong = lewati. Satu per Halaman, berputar dengan gambar.",
+              "ja_JP": "任意。1行1件。空ならコメントなし。各ページ1件、画像と循環。",
+              "ko_KR": "선택. 한 줄 1건. 비우면 댓글 생략. 페이지당 1건, 이미지와 순환.",
+              "ms_MY": "Pilihan. Satu komen setiap baris. Kosong = langkau. Satu setiap Halaman, kitar dengan imej.",
+              "pt_BR": "Opcional. Um comentário por linha. Vazio = pular. Um por Página, em ciclo com imagens.",
+              "ru_RU": "Необязательно. Один комментарий в строке. Пусто = пропуск. По одному на Страницу, с картинками по кругу.",
+              "th_TH": "ไม่บังคับ หนึ่งคอมเมนต์ต่อบรรทัด ว่าง=ข้าม หนึ่งต่อเพจ จับคู่รูปวน",
+              "vi_VN": "Tùy chọn. Mỗi dòng một bình luận. Trống = bỏ qua. Mỗi Trang một, xoay vòng với ảnh.",
+              "zh_CN": "可选。每行一条。留空则不发评论。每个主页一条，与评论图片按序配对循环。",
+              "zh_TW": "可選。每行一則。留空則不發評論。每個主頁一則，與評論圖片依序配對循環。"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "comment_images",
+            "type": "resource",
+            "label": {
+              "en_US": "Comment images",
+              "de_DE": "Kommentar-Bilder",
+              "es_ES": "Imágenes de comentario",
+              "fr_FR": "Images de commentaire",
+              "id_ID": "Gambar komentar",
+              "ja_JP": "コメント画像",
+              "ko_KR": "댓글 이미지",
+              "ms_MY": "Imej komen",
+              "pt_BR": "Imagens de comentário",
+              "ru_RU": "Изображения комментариев",
+              "th_TH": "รูปคอมเมนต์",
+              "vi_VN": "Ảnh bình luận",
+              "zh_CN": "评论图片",
+              "zh_TW": "評論圖片"
+            },
+            "hint": {
+              "en_US": "Optional. Images only. Paired with comment texts in order and cycled.",
+              "de_DE": "Optional. Nur Bilder. Mit Kommentartexten der Reihe nach und im Zyklus.",
+              "es_ES": "Opcional. Solo imágenes. Emparejadas con textos y en ciclo.",
+              "fr_FR": "Optionnel. Images seulement. Appariées aux textes et en cycle.",
+              "id_ID": "Opsional. Hanya gambar. Dipasangkan dengan teks dan berputar.",
+              "ja_JP": "任意。画像のみ。コメント文と順に組み合わせて循環。",
+              "ko_KR": "선택. 이미지만. 댓글 문구와 순서대로 짝을 이뤄 순환.",
+              "ms_MY": "Pilihan. Imej sahaja. Dipasangkan dengan teks mengikut tertib dan dikitar.",
+              "pt_BR": "Opcional. Somente imagens. Emparelhadas com textos e em ciclo.",
+              "ru_RU": "Необязательно. Только изображения. По кругу вместе с текстами.",
+              "th_TH": "ไม่บังคับ เฉพาะรูป จับคู่กับข้อความแล้ววน",
+              "vi_VN": "Tùy chọn. Chỉ ảnh. Ghép lần lượt với nội dung rồi xoay vòng.",
+              "zh_CN": "可选。仅图片。与评论文案按序配对并循环。",
+              "zh_TW": "可選。僅圖片。與評論文案依序配對並循環。"
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": []
+          },
+          {
+            "key": "enable_mention",
+            "type": "switch",
+            "label": {
+              "en_US": "Post Mentions",
+              "de_DE": "Erwähnungen posten",
+              "es_ES": "Publicar menciones",
+              "fr_FR": "Publier des mentions",
+              "id_ID": "Kirim Mentions",
+              "ja_JP": "メンション投稿を有効",
+              "ko_KR": "멘션 게시 사용",
+              "ms_MY": "Hantar Mentions",
+              "pt_BR": "Publicar menções",
+              "ru_RU": "Публиковать упоминания",
+              "th_TH": "เปิดโพสต์กล่าวถึง",
+              "vi_VN": "Bật đăng đề cập",
+              "zh_CN": "启用提及发帖",
+              "zh_TW": "啟用提及發文"
+            },
+            "hint": {
+              "en_US": "On by default. Off = skip Mentions tab posts (comments can still run if filled).",
+              "de_DE": "Standard an. Aus = keine Mentions (Kommentare weiterhin möglich).",
+              "es_ES": "Activado por defecto. Off = omitir menciones (los comentarios siguen si hay texto).",
+              "fr_FR": "Activé par défaut. Off = pas de mentions (commentaires possibles si texte).",
+              "id_ID": "Default nyala. Mati = lewati Mentions (komentar tetap jika ada teks).",
+              "ja_JP": "既定オン。オフならメンション投稿なし（コメント文があればコメント可）。",
+              "ko_KR": "기본 켜짐. 끄면 멘션 게시 생략(댓글 문구가 있으면 댓글 가능).",
+              "ms_MY": "Lalai hidup. Mati = langkau Mentions (komen kekal jika ada teks).",
+              "pt_BR": "Ligado por padrão. Off = pular menções (comentários seguem se houver texto).",
+              "ru_RU": "По умолчанию вкл. Выкл = без упоминаний (комментарии при наличии текста).",
+              "th_TH": "เปิดเป็นค่าเริ่ม ปิด=ไม่โพสต์กล่าวถึง (ยังคอมเมนต์ได้ถ้ามีข้อความ)",
+              "vi_VN": "Mặc định bật. Tắt = bỏ đề cập (vẫn bình luận nếu có nội dung).",
+              "zh_CN": "默认开启。关闭则不发「提及」帖（若填了评论文案仍可评论）。",
+              "zh_TW": "預設開啟。關閉則不發「提及」貼（若填了評論文案仍可評論）。"
+            },
+            "defaultValue": 1
+          },
+          {
+            "key": "mention_texts",
+            "type": "text",
+            "label": {
+              "en_US": "Mention texts",
+              "de_DE": "Erwähnungstexte",
+              "es_ES": "Textos de mención",
+              "fr_FR": "Textes de mention",
+              "id_ID": "Teks mention",
+              "ja_JP": "メンション文",
+              "ko_KR": "멘션 문구",
+              "ms_MY": "Teks sebutan",
+              "pt_BR": "Textos da menção",
+              "ru_RU": "Тексты упоминаний",
+              "th_TH": "ข้อความกล่าวถึง",
+              "vi_VN": "Nội dung đề cập",
+              "zh_CN": "提及文案",
+              "zh_TW": "提及文案"
+            },
+            "hint": {
+              "en_US": "One post per line. Reused in order across Pages (cycles if fewer texts than Pages). Comments are not sent.",
+              "de_DE": "Ein Beitrag pro Zeile. Der Reihe nach für Seiten (zyklisch bei weniger Texten). Keine Kommentare.",
+              "es_ES": "Una publicación por línea. Se reutilizan en orden (ciclo si hay menos textos). No se envían comentarios.",
+              "fr_FR": "Un post par ligne. Réutilisés dans l’ordre (cycle s’il y en a moins). Pas de commentaires.",
+              "id_ID": "Satu postingan per baris. Dipakai berurutan (berputar jika lebih sedikit). Tidak mengirim komentar.",
+              "ja_JP": "1行1投稿。ページ順に循環。コメントは送りません。",
+              "ko_KR": "한 줄에 하나. 페이지 순서대로 순환. 댓글은 보내지 않습니다.",
+              "ms_MY": "Satu siaran setiap baris. Diguna mengikut tertib (kitar jika kurang). Tiada komen.",
+              "pt_BR": "Uma publicação por linha. Reutilizadas em ordem (ciclo se houver menos). Sem comentários.",
+              "ru_RU": "Один пост в строке. По кругу для страниц. Комментарии не отправляются.",
+              "th_TH": "หนึ่งโพสต์ต่อบรรทัด ใช้วนตามเพจ ไม่ส่งคอมเมนต์",
+              "vi_VN": "Mỗi dòng một bài. Dùng lần lượt (xoay vòng nếu ít hơn). Không gửi bình luận.",
+              "zh_CN": "每行一条。按主页顺序循环使用；文案少则从头再用。不发送评论。",
+              "zh_TW": "每行一則。依主頁順序循環；文案較少則從頭再用。不發送評論。"
+            },
+            "multiline": true,
+            "maxLines": 5,
+            "defaultValue": ""
+          },
+          {
+            "key": "mention_images",
+            "type": "resource",
+            "label": {
+              "en_US": "Mention images",
+              "de_DE": "Erwähnungsbilder",
+              "es_ES": "Imágenes de mención",
+              "fr_FR": "Images de mention",
+              "id_ID": "Gambar mention",
+              "ja_JP": "メンション画像",
+              "ko_KR": "멘션 이미지",
+              "ms_MY": "Imej sebutan",
+              "pt_BR": "Imagens da menção",
+              "ru_RU": "Изображения упоминаний",
+              "th_TH": "รูปกล่าวถึง",
+              "vi_VN": "Ảnh đề cập",
+              "zh_CN": "提及图片",
+              "zh_TW": "提及圖片"
+            },
+            "hint": {
+              "en_US": "Optional image pool. Images only. Paired with texts in order and cycled.",
+              "de_DE": "Optionale Bildliste. Nur Bilder. Der Reihe nach mit Texten gepaart und zyklisch.",
+              "es_ES": "Grupo opcional de imágenes. Solo imágenes. Se emparejan con los textos y ciclan.",
+              "fr_FR": "Images facultatives. Images uniquement. Associées aux textes et en cycle.",
+              "id_ID": "Kumpulan gambar opsional. Hanya gambar. Dipasangkan dengan teks dan berputar.",
+              "ja_JP": "任意。画像のみ。文案と順に組み合わせて循環。",
+              "ko_KR": "선택. 이미지만. 문구와 순서대로 짝을 이뤄 순환.",
+              "ms_MY": "Pilihan. Imej sahaja. Dipasangkan dengan teks mengikut tertib dan dikitar.",
+              "pt_BR": "Opcional. Somente imagens. Emparelhadas com os textos e em ciclo.",
+              "ru_RU": "Необязательно. Только изображения. По кругу вместе с текстами.",
+              "th_TH": "ไม่บังคับ เฉพาะรูป จับคู่กับข้อความแล้ววน",
+              "vi_VN": "Tùy chọn. Chỉ ảnh. Ghép lần lượt với nội dung rồi xoay vòng.",
+              "zh_CN": "可选。仅图片。与文案按序配对并循环。",
+              "zh_TW": "可選。僅圖片。與文案依序配對並循環。"
+            },
+            "allowMultiple": true,
+            "extensions": [
+              ".png",
+              ".jpg",
+              ".jpeg",
+              ".webp",
+              ".gif"
+            ],
+            "defaultValue": []
+          }
+        ]
+      },
+      {
+        "title": {
+          "en_US": "Browsers",
+          "de_DE": "Browser",
+          "es_ES": "Navegadores",
+          "fr_FR": "Navigateurs",
+          "id_ID": "Browser",
+          "ja_JP": "ブラウザ",
+          "ko_KR": "브라우저",
+          "ms_MY": "Pelayar",
+          "pt_BR": "Navegadores",
+          "ru_RU": "Браузеры",
+          "th_TH": "เบราว์เซอร์",
+          "vi_VN": "Trình duyệt",
+          "zh_CN": "浏览器",
+          "zh_TW": "瀏覽器"
+        },
+        "fields": [
+          {
+            "key": "browsers",
+            "type": "browser",
+            "label": {
+              "en_US": "Browsers",
+              "de_DE": "Browser",
+              "es_ES": "Navegadores",
+              "fr_FR": "Navigateurs",
+              "id_ID": "Browser",
+              "ja_JP": "ブラウザ",
+              "ko_KR": "브라우저",
+              "ms_MY": "Pelayar",
+              "pt_BR": "Navegadores",
+              "ru_RU": "Браузеры",
+              "th_TH": "เบราว์เซอร์",
+              "vi_VN": "Trình duyệt",
+              "zh_CN": "浏览器",
+              "zh_TW": "瀏覽器"
+            },
+            "hint": {
+              "en_US": "Logged-in Facebook browsers. Each is inspected first; only invalid accounts are tagged and skipped. Others collect by keyword then send Mentions.",
+              "de_DE": "Angemeldete Facebook-Browser. Zuerst Prüfung; nur ungültige Konten werden markiert und übersprungen. Die übrigen sammeln und senden Erwähnungen.",
+              "es_ES": "Navegadores de Facebook con sesión. Primero se revisan; solo las inválidas se etiquetan y omiten. El resto recoge y envía menciones.",
+              "fr_FR": "Navigateurs Facebook connectés. Inspection d’abord ; seuls les comptes invalides sont étiquetés et ignorés. Les autres collectent et envoient des mentions.",
+              "id_ID": "Browser Facebook yang sudah login. Dicek dulu; hanya akun invalid dilabel dan dilewati. Yang lain mengumpulkan lalu mengirim mention.",
+              "ja_JP": "ログイン済みの Facebook ブラウザ。先に点検し、無効アカウントのみタグ付けしてスキップ。残りは収集してメンション送信。",
+              "ko_KR": "로그인한 Facebook 브라우저. 먼저 점검하고 무효 계정만 태그 후 건너뜁니다. 나머지는 수집 후 멘션 발송.",
+              "ms_MY": "Pelayar Facebook yang log masuk. Diperiksa dulu; hanya akaun tidak sah dilabel dan dilangkau. Yang lain kumpul lalu hantar sebutan.",
+              "pt_BR": "Navegadores Facebook logados. Inspeção primeiro; só inválidas são etiquetadas e puladas. As demais coletam e enviam menções.",
+              "ru_RU": "Браузеры Facebook со входом. Сначала проверка; только недействительные помечаются и пропускаются. Остальные собирают и шлют упоминания.",
+              "th_TH": "เบราว์เซอร์ Facebook ที่ล็อกอินแล้ว ตรวจบัญชีก่อน เฉพาะบัญชีหมดอายุจะติดป้ายและข้าม ที่เหลือเก็บเพจแล้วส่งการกล่าวถึง",
+              "vi_VN": "Trình duyệt Facebook đã đăng nhập. Kiểm tra trước; chỉ tài khoản hết hiệu lực được gắn nhãn và bỏ qua. Các tài khoản khác thu thập rồi gửi đề cập.",
+              "zh_CN": "已登录 Facebook 的浏览器。启动时先巡检；仅「账户失效」打标并跳过，其它状态继续采集并发送提及。",
+              "zh_TW": "已登入 Facebook 的瀏覽器。啟動時先巡檢；僅「帳戶失效」打標並跳過，其它狀態繼續採集並發送提及。"
+            },
+            "single": false,
+            "platform": "facebook",
+            "defaultValue": []
+          }
+        ]
+      }
+    ],
+    "workflowResultConfig": [
+      {
+        "title": {
+          "en_US": "Workflow result",
+          "de_DE": "Workflow-Ergebnis",
+          "es_ES": "Resultado del flujo",
+          "fr_FR": "Résultat du workflow",
+          "id_ID": "Hasil alur kerja",
+          "ja_JP": "ワークフロー結果",
+          "ko_KR": "워크플로 결과",
+          "ms_MY": "Hasil aliran kerja",
+          "pt_BR": "Resultado do fluxo",
+          "ru_RU": "Результат workflow",
+          "th_TH": "ผลเวิร์กโฟลว์",
+          "vi_VN": "Kết quả quy trình",
+          "zh_CN": "工作流结果",
+          "zh_TW": "工作流結果"
+        },
+        "fields": [
+          {
+            "key": "mentioned",
+            "type": "stat",
+            "label": {
+              "en_US": "Mention tasks sent successfully",
+              "de_DE": "Erfolgreich gesendete Erwähnungen",
+              "es_ES": "Menciones enviadas con éxito",
+              "fr_FR": "Mentions envoyées avec succès",
+              "id_ID": "Tugas mention berhasil dikirim",
+              "ja_JP": "送信成功したメンション数",
+              "ko_KR": "멘션 발송 성공 수",
+              "ms_MY": "Tugas sebutan berjaya dihantar",
+              "pt_BR": "Menções enviadas com sucesso",
+              "ru_RU": "Успешно отправленные упоминания",
+              "th_TH": "งานกล่าวถึงที่ส่งสำเร็จ",
+              "vi_VN": "Nhiệm vụ đề cập gửi thành công",
+              "zh_CN": "提及发送成功数",
+              "zh_TW": "提及發送成功數"
+            }
+          },
+          {
+            "key": "failed",
+            "type": "stat",
+            "label": {
+              "en_US": "Mention tasks that failed",
+              "de_DE": "Fehlgeschlagene Erwähnungen",
+              "es_ES": "Menciones fallidas",
+              "fr_FR": "Mentions échouées",
+              "id_ID": "Tugas mention gagal",
+              "ja_JP": "送信失敗したメンション数",
+              "ko_KR": "멘션 발송 실패 수",
+              "ms_MY": "Tugas sebutan gagal",
+              "pt_BR": "Menções que falharam",
+              "ru_RU": "Неудачные упоминания",
+              "th_TH": "งานกล่าวถึงที่ล้มเหลว",
+              "vi_VN": "Nhiệm vụ đề cập thất bại",
+              "zh_CN": "提及发送失败数",
+              "zh_TW": "提及發送失敗數"
+            }
+          },
+          {
+            "key": "summary",
+            "type": "text",
+            "label": {
+              "en_US": "Summary",
+              "de_DE": "Zusammenfassung",
+              "es_ES": "Resumen",
+              "fr_FR": "Résumé",
+              "id_ID": "Ringkasan",
+              "ja_JP": "要約",
+              "ko_KR": "요약",
+              "ms_MY": "Ringkasan",
+              "pt_BR": "Resumo",
+              "ru_RU": "Сводка",
+              "th_TH": "สรุป",
+              "vi_VN": "Tóm tắt",
+              "zh_CN": "摘要",
+              "zh_TW": "摘要"
+            }
+          }
+        ]
+      }
+    ],
+    "scriptAi": {
+      "enabled": false,
+      "purpose": "",
+      "deviceMcp": {
+        "enabled": false,
+        "purpose": ""
+      }
+    },
+    "flowChart": {
+      "title": {
+        "en_US": "Check then optional collect then optional comment/mention",
+        "de_DE": "Prüfen dann optional sammeln und Kommentar/Erwähnung",
+        "es_ES": "Revisar luego recoger y comentar/mencionar opc.",
+        "fr_FR": "Vérif puis collecte et commentaire/mention opt.",
+        "id_ID": "Cek lalu kumpul opsional lalu komentar/mention",
+        "ja_JP": "点検後に任意収集と任意コメント/メンション",
+        "ko_KR": "점검 후 선택 수집·댓글/멘션",
+        "ms_MY": "Semak lalu kumpul pilihan lalu komen/sebutan",
+        "pt_BR": "Checar depois coletar e comentar/mencionar opc.",
+        "ru_RU": "Проверка затем опц. сбор и комментарий/упоминание",
+        "th_TH": "ตรวจแล้วเก็บเพจเลือกได้แล้วคอมเมนต์/กล่าวถึง",
+        "vi_VN": "Kiểm tra rồi thu tùy chọn rồi bình luận/đề cập",
+        "zh_CN": "巡检后可选采集再可选评论提及",
+        "zh_TW": "巡檢後可選採集再可選評論提及"
+      },
+      "mermaid": "flowchart TD\n  start([填写关键词、地区、开关、文案、浏览器]) --> nextAcc[取下一个账号]\n  nextAcc --> check[当前账号巡检]\n  check --> pass{巡检是否通过}\n  pass -->|硬失败或失效打标| moreAcc{是否还有账号}\n  pass -->|网络代理软跳过| moreAcc\n  pass -->|是| src{采集来源}\n  src -->|开关键词| kw[随机关键词搜公共主页]\n  src -->|开广告库| ad[随机关键词广告资料库]\n  kw --> emptyKw{是否无主页}\n  emptyKw -->|是换词| kw\n  emptyKw -->|有结果| merge[合并去重凑满配额]\n  ad --> merge\n  merge --> hasPage{是否有主页}\n  hasPage -->|否| moreAcc\n  hasPage -->|是| engage{是否评论或提及}\n  engage -->|否| moreAcc\n  engage -->|是| runD1[第1天逐页发评论提及并等待完成]\n  runD1 --> morePage{本账号还有主页}\n  morePage -->|是| runD1\n  morePage -->|否| queueLater[后续天按planStartAt隔天入队]\n  queueLater --> moreAcc\n  moreAcc -->|是| nextAcc\n  moreAcc -->|否| waitAll[等待后续天已入队任务]\n  waitAll --> passN{后续天巡检结果}\n  passN -->|硬失败| cancelFollow[取消该天互动]\n  passN -->|网络代理软跳过| keepFollow[保留该天互动]\n  cancelFollow --> moreDay{是否还有批次}\n  keepFollow --> runFollow[统计该天互动结果]\n  passN -->|通过| runFollow\n  runFollow --> moreDay\n  moreDay -->|是| waitAll\n  moreDay -->|否| done([汇总互动成功与失败数])"
+    }
+  }
+}
